@@ -10,9 +10,10 @@ import Footer from "./Footer";
 
 const useStyles = makeStyles(themeObject => ({
     main: {
+        minHeight: '100%',
         height: '100%',
         width: '100%',
-        backgroundColor: themeObject.palette.secondary,
+        backgroundColor: themeObject.palette.secondary.main,
     },
 }));
 

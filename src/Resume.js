@@ -1,10 +1,13 @@
 import React, { Fragment } from "react";
-import { makeStyles, Typography, Container, Grid, Box, List, ListItem, Divider } from "@material-ui/core";
+import { makeStyles, Typography, Container, Grid, Box, List, ListItem, Divider, IconButton, Link } from "@material-ui/core";
 import Section from './Resume/Section.js'
 import JobContent from "./Resume/JobContent.js";
 import KnowledgeItem from "./Resume/KnowledgeItem.js";
 import LocationOnRoundedIcon from '@material-ui/icons/LocationOnRounded';
 import ProfileSmall from './assets/profile-small.svg';
+import GitHub from './GitHub.js';
+import LinkedIn from './LinkedIn.js';
+import Email from './Email.js';
 
 const useStyles = makeStyles(themeObject => ({
   spacer: themeObject.mixins.toolbar,
@@ -23,10 +26,11 @@ const useStyles = makeStyles(themeObject => ({
     display: 'inline'
   },
   divider: {
-    height: 125
+    marginTop: 5,
+    height: 165
   },
   blurb: {
-    width: 500
+    width: 340
   }
 }));
 
@@ -57,14 +61,34 @@ function Resume() {
 
                   {/* DETAILS */}
                   <Grid item>
-                    <Grid container direction="column" alignItems="center">
+                    <Grid container direction="column" alignItems="center" >
+
+                        {/* PROFILE */}
                         <Grid item>
                           <img src={ProfileSmall} className={styles.profileSmall}/>
                         </Grid>
+
+                        {/* LOCATION */}
                         <Grid item>
-                          <LocationOnRoundedIcon fontSize="small"/>
+                          <LocationOnRoundedIcon fontSize="small" color="primary" />
                           <Typography className={styles.location}>San Francisco, CA</Typography>
                         </Grid>
+
+                        {/* SOCIAL */}
+                        <Grid item>
+                          <Grid container justify="center" spacing={2} className={styles.footerGrid}>
+                            <Grid item>
+                               <LinkedIn color="dark" />
+                            </Grid>
+                            <Grid item>
+                                <GitHub color="dark" />
+                            </Grid>
+                            <Grid item>
+                                <Email color="dark" />
+                            </Grid>
+                          </Grid>
+                        </Grid>
+
                     </Grid>
                   </Grid>
 

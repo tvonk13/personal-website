@@ -1,10 +1,10 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { useLocation } from 'react-router-dom';
-import { makeStyles, Box, Grid, Link, IconButton } from "@material-ui/core";
-import GitHubIcon from "@material-ui/icons/GitHub";
-import Treeline from './assets/treeline.svg';
-import LinkedIn from './assets/linkedin.svg';
-import Email from './assets/email.svg';
+import { makeStyles, Box, Grid } from "@material-ui/core";
+import Treeline from './assets/treeline-short.svg';
+import GitHub from './GitHub.js';
+import LinkedIn from './LinkedIn.js';
+import Email from './Email.js';
 
 const useStyles = makeStyles(themeObject => ({
     footer: {
@@ -19,7 +19,7 @@ const useStyles = makeStyles(themeObject => ({
         height: '120px',
     },
     footerContent: {
-        position: 'absolute',
+        position: 'relative',
         bottom: 0,
         paddingBottom: 15,
         width: '100%',
@@ -27,18 +27,7 @@ const useStyles = makeStyles(themeObject => ({
     footerGrid: {
         width: '100%',
         margin: '0'
-    },
-    socialLink: {
-        textDecoration: "none"
-    },
-    iconButton: { 
-        padding: 0,
-    },
-    icon: {
-        width: '25px',
-        height: '25px',
-        marginTop: '3px'
-    },
+    }
 }));
 
 function Footer() {
@@ -46,27 +35,24 @@ function Footer() {
     const { pathname } = useLocation();
 
     return(
-        <div className={styles.footer} style={pathname != "/" ? {position: "relative"} : {}}>
-            <Box className={styles.footerContent}>
-                <Grid container justify="center" spacing={2} className={styles.footerGrid}>
-                    <Grid item>
-                        <IconButton component={Link} href="https://www.linkedin.com/in/taylor-vonk/" className={styles.iconButton}>
-                            <img src={LinkedIn} className={styles.icon} />
-                        </IconButton>
+        <Fragment>
+            <div className={styles.footer} style={pathname == "/" ? {display: "none"} : {position: "relative", opacity: 0} }></div>
+            <div className={styles.footer} >
+                <Box className={styles.footerContent}>
+                    <Grid container justify="center" spacing={2} className={styles.footerGrid}>
+                        <Grid item>
+                            <LinkedIn color="light" />
+                        </Grid>
+                        <Grid item>
+                            <GitHub color="light" />
+                        </Grid>
+                        <Grid item>
+                            <Email color="light" />
+                        </Grid>
                     </Grid>
-                    <Grid item>
-                        <IconButton size="small" component={Link} href="https://github.com/tvonk13" color="inherit">
-                            <GitHubIcon />
-                        </IconButton>
-                    </Grid>
-                    <Grid item>
-                        <IconButton component={Link} href="" className={styles.iconButton}>
-                            <img src={Email} className={styles.icon} />
-                        </IconButton>
-                    </Grid>
-                </Grid>
-            </Box>
-        </div>
+                </Box>
+            </div>
+        </Fragment>
     );
 }
 
