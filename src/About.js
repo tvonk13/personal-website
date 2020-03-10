@@ -8,9 +8,11 @@ const useStyles = makeStyles(themeObject => ({
         marginBottom: 50,
         flexGrow: 1,
     },
-    profile: {
-        height: 500,
-        width: 500,
+    profileContainer: {
+        width: '50%'
+    },
+    profileImg: {
+        width: '100%',
     }
 }));
 
@@ -20,8 +22,8 @@ function About() {
     return (
         <Container maxWidth="md" className={styles.about}>
             <Grid container justify="center" alignItems="center" direction="column" spacing={2}>
-                <Grid item>
-                    <img src={Profile} className={styles.profile} alt="Profile"/>
+                <Grid item className={styles.profileContainer}>
+                    <img src={Profile} className={styles.profileImg} alt="Profile"/>
                 </Grid>
                 <Grid item>
                     <Typography variant="body1" component="p" color="primary">

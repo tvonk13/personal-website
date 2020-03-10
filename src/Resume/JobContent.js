@@ -4,7 +4,7 @@ import JobDescription from './JobDescription'
 
 const useStyles = makeStyles(themeObject => ({
     date: {
-        width: '20%'
+        width: 110
     },
     description: {
         width: '100%',
