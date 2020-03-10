@@ -4,10 +4,11 @@ import JobDescription from './JobDescription'
 
 const useStyles = makeStyles(themeObject => ({
     date: {
-        width: '25%'
+        width: '20%'
     },
     description: {
-        width: '100%'
+        width: '100%',
+        paddingLeft: '10%'
     }
 }));
 
@@ -15,7 +16,7 @@ function JobContent({date, title, subtitle, bullets}){
     const styles = useStyles();
     
     return(
-        <Grid container direction="row" spacing={10} wrap="nowrap" justify="flex-start">
+        <Grid container direction="row" wrap="nowrap" justify="flex-start">
             <Grid item className={styles.date}>
                 <Typography variant="h6">{date}</Typography>
             </Grid>

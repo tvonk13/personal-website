@@ -1,15 +1,7 @@
 import React from 'react';
-import { makeStyles, Typography, Grid } from "@material-ui/core";
-
-const useStyles = makeStyles(themeObject => ({
-
-}));
+import { Typography, Grid } from "@material-ui/core";
 
 function JobDescription({title, subtitle, bullets}){
-    const styles = useStyles();
-
-    var i = 0;
-    
     return(
         <Grid container direction="column">
             <Grid item>
@@ -20,7 +12,7 @@ function JobDescription({title, subtitle, bullets}){
             </Grid>
             <Grid item>
                 <ul>
-                    {bullets.map(bullet => <li key={i++}>{bullet}</li>)}
+                    {bullets.map((bullet, index) => <li key={index}>{bullet}</li>)}
                 </ul>
             </Grid>
         </Grid>

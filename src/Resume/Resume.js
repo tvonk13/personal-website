@@ -1,116 +1,32 @@
-import React, { Fragment } from "react";
-import { makeStyles, Typography, Container, Grid, Box, List, ListItem, Divider, IconButton, Link } from "@material-ui/core";
-import Section from './Resume/Section.js'
-import JobContent from "./Resume/JobContent.js";
-import KnowledgeItem from "./Resume/KnowledgeItem.js";
-import LocationOnRoundedIcon from '@material-ui/icons/LocationOnRounded';
-import ProfileSmall from './assets/profile-small.svg';
-import GitHub from './GitHub.js';
-import LinkedIn from './LinkedIn.js';
-import Email from './Email.js';
+import React from "react";
+import { makeStyles, Typography, Container, Grid, List, ListItem } from "@material-ui/core";
+import Section from './Section.js'
+import JobContent from "./JobContent.js";
+import KnowledgeItem from "./KnowledgeItem.js";
+import Header from "./ResumeHeader.js";
 
 const useStyles = makeStyles(themeObject => ({
-  spacer: themeObject.mixins.toolbar,
   resume: {
     paddingTop: 30,
-    marginBottom: 50
+    marginBottom: 50,
+    flexGrow: 1
   },
-  name: {
-    textAlign: 'center',
-    fontFamily: 'Neucha'
+  skillColumn: {
+    flexGrow: 1
   },
-  profileSmall: {
-    height: 100
-  },
-  location: {
-    display: 'inline'
-  },
-  divider: {
-    marginTop: 5,
-    height: 165
-  },
-  blurb: {
-    width: 340
-  }
 }));
 
 function Resume() {
   const styles = useStyles();
 
   return (
-    <Fragment>
-
-      <Box className={styles.spacer}></Box>
-
       <Container maxWidth="md" className={styles.resume}>
 
         <Grid container justify="flex-start" direction="column" spacing={5}>
 
           {/* HEADER */}
           <Grid item>
-            <Grid container direction="column" justify="flex-start" alignItems="center" spacing={1}>
-
-              {/* NAME */}
-              <Grid item>
-                <Typography variant="h3" className={styles.name}>Taylor Vonk</Typography>
-              </Grid>
-
-              {/* DETAILS AND BLURB */}
-              <Grid item>
-                <Grid container direction="row" justify="center" alignItems="flex-start" wrap="nowrap" spacing={3}>
-
-                  {/* DETAILS */}
-                  <Grid item>
-                    <Grid container direction="column" alignItems="center" >
-
-                        {/* PROFILE */}
-                        <Grid item>
-                          <img src={ProfileSmall} className={styles.profileSmall}/>
-                        </Grid>
-
-                        {/* LOCATION */}
-                        <Grid item>
-                          <LocationOnRoundedIcon fontSize="small" color="primary" />
-                          <Typography className={styles.location}>San Francisco, CA</Typography>
-                        </Grid>
-
-                        {/* SOCIAL */}
-                        <Grid item>
-                          <Grid container justify="center" spacing={2} className={styles.footerGrid}>
-                            <Grid item>
-                               <LinkedIn color="dark" />
-                            </Grid>
-                            <Grid item>
-                                <GitHub color="dark" />
-                            </Grid>
-                            <Grid item>
-                                <Email color="dark" />
-                            </Grid>
-                          </Grid>
-                        </Grid>
-
-                    </Grid>
-                  </Grid>
-
-                  <Grid item>
-                    <Divider flexItem orientation="vertical" className={styles.divider}/>
-                  </Grid>
-
-                  {/* BLURB */}
-                  <Grid item>
-                    <Typography variant="body1" className={styles.blurb}>
-                      <em>
-                      Driven software engineer who is a great team player and is eager to grow in the field of computer science. 
-                      Enjoys learning through hands-on projects and by working with fellow developers. Has experience using Java, 
-                      JSP, JavaScript and web frameworks to build RESTful APIs and web applications.
-                      </em>
-                    </Typography>
-                  </Grid>
-
-                </Grid>
-              </Grid>
-
-            </Grid>
+            <Header />
           </Grid>
 
           {/* EDUCATION */}
@@ -164,8 +80,8 @@ function Resume() {
 
           <Grid item>
             <Section name="Languages/Frameworks">
-              <Grid container direction="row" justify="flex-start" spacing={10}>
-                <Grid item>
+              <Grid container direction="row" justify="flex-start">
+                <Grid item className={styles.skillColumn}>
                   <List>
                     <ListItem> <KnowledgeItem name="CSS" level={3} /> </ListItem>
                     <ListItem> <KnowledgeItem name="HTML" level={3} /> </ListItem>
@@ -173,7 +89,7 @@ function Resume() {
                     <ListItem> <KnowledgeItem name="JavaScript" level={3} /> </ListItem>
                   </List>
                 </Grid>
-                <Grid item>
+                <Grid item className={styles.skillColumn}>
                   <List>
                     <ListItem> <KnowledgeItem name="React" level={2} /> </ListItem>
                     <ListItem> <KnowledgeItem name="SQL" level={2} /> </ListItem>
@@ -186,8 +102,8 @@ function Resume() {
 
           <Grid item>
             <Section name="Software/Tools">
-            <Grid container direction="row" justify="flex-start" spacing={10}>
-                <Grid item>
+            <Grid container direction="row" justify="space-between">
+                <Grid item className={styles.skillColumn}>
                   <List>
                     <ListItem> <KnowledgeItem name="IntelliJ" level={4} /> </ListItem>
                     <ListItem> <KnowledgeItem name="MySQL" level={3} /> </ListItem>
@@ -195,7 +111,7 @@ function Resume() {
                     <ListItem> <KnowledgeItem name="REST Architecture" level={3} /> </ListItem>
                   </List>
                 </Grid>
-                <Grid item>
+                <Grid item className={styles.skillColumn}>
                   <List>
                     <ListItem> <KnowledgeItem name="AWS" level={1} /> </ListItem>
                     <ListItem> <KnowledgeItem name="GCP" level={2} /> </ListItem>
@@ -220,8 +136,6 @@ function Resume() {
         </Grid>
 
       </Container>
-
-    </Fragment>
   );
 }
 

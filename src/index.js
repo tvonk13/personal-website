@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { HashRouter } from "react-router-dom";
 import CssBaseLine from "@material-ui/core/CssBaseline";
-
-import "./index.css";
 
 import Main from "./Main";
 
@@ -21,7 +20,9 @@ const theme = createMuiTheme({
 ReactDOM.render(
   <ThemeProvider theme={theme}>
     <CssBaseLine />
-    <Main/>
+    <HashRouter>
+      <Main/>
+    </HashRouter>
   </ThemeProvider>,
   document.getElementById("root"),
 );
