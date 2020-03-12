@@ -1,9 +1,9 @@
-import React from "react";
-import { makeStyles, Typography, Container, Grid, List, ListItem } from "@material-ui/core";
-import Section from './Section.js'
-import JobContent from "./JobContent.js";
-import KnowledgeItem from "./KnowledgeItem.js";
-import Header from "./ResumeHeader.js";
+import React, { useState, useEffect } from "react";
+import { makeStyles, Typography, Container, Grid, List, ListItem, Fade } from "@material-ui/core";
+import Section from './Section'
+import JobContent from "./JobContent";
+import KnowledgeItem from "./KnowledgeItem";
+import Header from "./ResumeHeader";
 
 const useStyles = makeStyles(themeObject => ({
   resume: {
@@ -18,8 +18,14 @@ const useStyles = makeStyles(themeObject => ({
 
 function Resume() {
   const styles = useStyles();
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    if (!loaded) setLoaded(true)
+  }, [])
 
   return (
+    <Fade in={loaded} timeout={1500}>
       <Container maxWidth="md" className={styles.resume}>
 
         <Grid container justify="flex-start" direction="column" spacing={5}>
@@ -136,6 +142,7 @@ function Resume() {
         </Grid>
 
       </Container>
+    </Fade>
   );
 }
 

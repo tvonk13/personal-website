@@ -1,7 +1,7 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { makeStyles, Container } from "@material-ui/core";
 import Treeline from './assets/treeline-short.svg';
-import SocialIcons from './SocialIcons/SocialIcons.js'
+import SocialIcons from './SocialIcons/SocialIcons'
 
 const useStyles = makeStyles(themeObject => ({
     footer: {
@@ -24,13 +24,11 @@ function Footer() {
     const styles = useStyles();
 
     return(
-        <Fragment>
-            <div className={styles.footer}>
-                <Container className={styles.footerContent}>
-                    <SocialIcons color="light" />
-                </Container>
-            </div>
-        </Fragment>
+        <div className={styles.footer}>
+            <Container className={styles.footerContent}>
+                <SocialIcons color="light" />
+            </Container>
+        </div>
     );
 }
 
