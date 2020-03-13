@@ -17,9 +17,6 @@ const useStyles = makeStyles(themeObject => ({
     profileImg: {
         width: '100%',
         height: '100%',
-    },
-    githubLink: {
-        textDecoration: 'none'
     }
 }));
 
@@ -48,8 +45,7 @@ function About() {
                         <Typography variant="body1" component="p" color="primary">
                             Hi, I'm Taylor! I'm a San Francisco-based software engineer working for a tech company located in Boston. I have full-stack experience building
                             Java and JavaScript -based web applications for both internal and customer-facing platforms. During off-hours I enjoy deepening my knowledge of 
-                            web development by working on personal projects like this website! If you want to see the code behind it, check it out on 
-                            <a href="https://github.com/tvonk13/Personal-Website" className={styles.githubLink}> github</a>.
+                            web development by working on personal projects like this website!
                         </Typography>
                     </Grid>
                     <Grid item>
