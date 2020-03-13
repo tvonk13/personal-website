@@ -21,7 +21,7 @@ function Resume() {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    if (!loaded) setLoaded(true)
+    setLoaded(true);
   }, [])
 
   return (
