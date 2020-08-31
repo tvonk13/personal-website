@@ -28,7 +28,7 @@ export default function SidePanel({title, version, tags, season, year, websiteLi
     const classes = useStyles();
 
     return (
-        <Box display="flex" flexDirection="column" height="fit-content" position="fixed">
+        <Box display="flex" flexDirection="column" height="fit-content" position="sticky" top={24}>
             {/*Title and Tags*/}
             <Box display="flex" flexDirection="column" mb={16} className={classes.section}>
                 {/*Title*/}
