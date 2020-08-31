@@ -5,10 +5,10 @@ import JobContent from "./JobContent";
 import KnowledgeItem from "./KnowledgeItem";
 import Header from "./ResumeHeader";
 
-const useStyles = makeStyles(themeObject => ({
+const useStyles = makeStyles(theme => ({
   resume: {
-    paddingTop: 30,
-    marginBottom: 50,
+    paddingTop: theme.spacing(4),
+    marginBottom: theme.spacing(6),
     flexGrow: 1
   },
   skillColumn: {

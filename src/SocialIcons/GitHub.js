@@ -18,7 +18,7 @@ function GitHub({color, url}) {
     const styles = useStyles();
 
     return (
-        <IconButton component={Link} href={url != null ? url : "https://github.com/tvonk13"} className={styles.iconButton}>
+        <IconButton component={Link} href={url != null ? url : "https://github.com/tvonk13"} target="_blank" className={styles.iconButton}>
             <img src={(color === "light" || color == null ) ? GitHubLight : GitHubDark} className={styles.icon} alt="GitHub" />
         </IconButton>
     );

@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import { makeStyles, Typography, Container, Grid, Fade } from "@material-ui/core";
 import Profile from './assets/profile-full.svg';
 
-const useStyles = makeStyles(themeObject => ({
+const useStyles = makeStyles(theme => ({
     about: {
-        paddingTop: 30,
-        marginBottom: 50,
+        paddingTop: theme.spacing(4),
+        marginBottom: theme.spacing(6),
         flexGrow: 1,
     },
     profileContainer: {

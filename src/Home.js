@@ -32,12 +32,12 @@ function Home() {
                     </Grid>
                     <Grid item>
                         <Typography variant="body1" align="center" color="primary" paragraph >
-                            I'm a software engineer with full-stack experience creating web applications. Check out my resume for more info!
+                            I bring together programming skills and a creative personality to produce elegantly written and artfully crafted works.
                         </Typography>
                     </Grid>
                     <Grid item>
-                        <Button to="/resume" component={Link} variant="contained" color="primary" >
-                            Resume
+                        <Button to="/projects" component={Link} variant="contained" color="primary" >
+                            View Projects
                         </Button>
                     </Grid>
                 </Grid>

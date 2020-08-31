@@ -9,7 +9,7 @@ import Main from "./Main";
 const theme = createMuiTheme({ 
   palette: {
     primary: { main: "#37374A" },
-    secondary: { main: "#E6E3E6" },
+    secondary: { main: "#E5E5E5" },
     background: "#BFA6BC"
   },
   typography: {

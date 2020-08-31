@@ -18,7 +18,7 @@ function LinkedIn({color, url}) {
     const styles = useStyles();
 
     return (
-        <IconButton component={Link} href={url != null ? url : "https://www.linkedin.com/in/taylor-vonk/"} className={styles.iconButton}>
+        <IconButton component={Link} href={url != null ? url : "https://www.linkedin.com/in/taylor-vonk/"} target="_blank" className={styles.iconButton}>
             <img src={(color === "light" || color == null ) ? LinkedInLight : LinkedInDark} className={styles.icon} alt="LinkedIn"/>
         </IconButton>
     );
