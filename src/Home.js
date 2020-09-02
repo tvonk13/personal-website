@@ -32,7 +32,7 @@ function Home() {
                     </Grid>
                     <Grid item>
                         <Typography variant="body1" align="center" color="primary" paragraph >
-                            I bring together programming skills and a creative personality to produce elegantly written and artfully crafted works.
+                            I am a software engineer who brings together technical skills and a passion for design to create elegantly functional and functionally elegant websites.
                         </Typography>
                     </Grid>
                     <Grid item>

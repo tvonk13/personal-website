@@ -39,7 +39,7 @@ function Header() {
         {/* LOCATION */}
         <Grid item>
           <LocationOnRoundedIcon fontSize="small" color="primary" />
-          <Typography className={styles.location}>San Francisco, CA</Typography>
+          <Typography className={styles.location}>Kirkland, WA</Typography>
         </Grid>
 
         {/* SOCIAL */}
@@ -51,9 +51,9 @@ function Header() {
         <Grid item>
           <Typography variant="body1" className={styles.blurb}>
             <em>
-            Driven software engineer who is a great team player and is eager to grow in the field of computer science. 
-            Enjoys learning through hands-on projects and by working with fellow developers. Has experience using Java, 
-            JSP, JavaScript and web frameworks to build RESTful APIs and web applications.
+            Driven and creative software engineer who is a great team player and is eager to grow in the field of computer science.
+            Enjoys learning through hands-on projects and by working with fellow developers. Has experience using Java,
+            JSP, JavaScript and web frameworks to build well designed web applications.
             </em>
           </Typography>
         </Grid>

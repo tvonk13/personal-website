@@ -26,26 +26,26 @@ export function Tool({icon, text}) {
 }
 
 export function AffinityTool({text}) {
-    const toolText = text === undefined ? "Asset creation" : text;
+    const toolText = text === undefined ? "Affinity Designer" : text;
     return <Tool text={toolText} icon={Affinity}/>
 }
 
 export function FigmaTool({text}) {
-    const toolText = text === undefined ? "UI Design" : text;
+    const toolText = text === undefined ? "Figma" : text;
     return <Tool text={toolText} icon={Figma}/>
 }
 
 export function ReactTool({text}) {
-    const toolText = text === undefined ? "Front End Development" : text;
+    const toolText = text === undefined ? "React" : text;
     return <Tool text={toolText} icon={ReactLogo}/>
 }
 
 export function MUITool({text}) {
-    const toolText = text === undefined ? "UI/UX Implementation" : text;
+    const toolText = text === undefined ? "Material UI" : text;
     return <Tool text={toolText} icon={MUI}/>
 }
 
 export function AWSTool({text}) {
-    const toolText = text === undefined ? "Hosting" : text;
+    const toolText = text === undefined ? "AWS Amplify" : text;
     return <Tool text={toolText} icon={AWS}/>
 }

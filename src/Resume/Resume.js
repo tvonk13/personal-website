@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { makeStyles, Typography, Container, Grid, List, ListItem, Fade } from "@material-ui/core";
+import { makeStyles, Typography, Container, Grid, List, ListItem, Fade, Box } from "@material-ui/core";
 import Section from './Section'
 import JobContent from "./JobContent";
 import KnowledgeItem from "./KnowledgeItem";
@@ -85,21 +85,22 @@ function Resume() {
           </Grid>
 
           <Grid item>
-            <Section name="Languages/Frameworks">
+            <Section name="Languages/Frameworks*">
               <Grid container direction="row" justify="flex-start">
                 <Grid item className={styles.skillColumn}>
                   <List>
-                    <ListItem> <KnowledgeItem name="CSS" level={3} /> </ListItem>
-                    <ListItem> <KnowledgeItem name="HTML" level={3} /> </ListItem>
-                    <ListItem> <KnowledgeItem name="Java" level={4} /> </ListItem>
-                    <ListItem> <KnowledgeItem name="JavaScript" level={3} /> </ListItem>
+                    <ListItem> <KnowledgeItem name="JavaScript" level={5} /> </ListItem>
+                    <ListItem> <KnowledgeItem name="React" level={5} /> </ListItem>
+                    <ListItem> <KnowledgeItem name="Java" level={5} /> </ListItem>
+                    <ListItem> <KnowledgeItem name="HTML" level={4} /> </ListItem>
                   </List>
                 </Grid>
                 <Grid item className={styles.skillColumn}>
                   <List>
-                    <ListItem> <KnowledgeItem name="React" level={2} /> </ListItem>
-                    <ListItem> <KnowledgeItem name="SQL" level={2} /> </ListItem>
+                    <ListItem> <KnowledgeItem name="CSS" level={4} /> </ListItem>
                     <ListItem> <KnowledgeItem name="Struts" level={3} /> </ListItem>
+                    <ListItem> <KnowledgeItem name="JSP" level={3} /> </ListItem>
+                    <ListItem> <KnowledgeItem name="SQL" level={2} /> </ListItem>
                   </List>
                 </Grid>
               </Grid>
@@ -107,25 +108,28 @@ function Resume() {
           </Grid>
 
           <Grid item>
-            <Section name="Software/Tools">
+            <Section name="Software/Tools*">
             <Grid container direction="row" justify="space-between">
                 <Grid item className={styles.skillColumn}>
                   <List>
                     <ListItem> <KnowledgeItem name="IntelliJ" level={4} /> </ListItem>
-                    <ListItem> <KnowledgeItem name="MySQL" level={3} /> </ListItem>
                     <ListItem> <KnowledgeItem name="Git" level={3} /> </ListItem>
-                    <ListItem> <KnowledgeItem name="REST Architecture" level={3} /> </ListItem>
+                    <ListItem> <KnowledgeItem name="MySQL" level={2} /> </ListItem>
                   </List>
                 </Grid>
                 <Grid item className={styles.skillColumn}>
                   <List>
-                    <ListItem> <KnowledgeItem name="AWS" level={1} /> </ListItem>
-                    <ListItem> <KnowledgeItem name="GCP" level={2} /> </ListItem>
-                    <ListItem> <KnowledgeItem name="Struts" level={3} /> </ListItem>
+                    <ListItem> <KnowledgeItem name="Figma" level={3} /> </ListItem>
+                    <ListItem> <KnowledgeItem name="Affinity Designer" level={3} /> </ListItem>
+                    <ListItem> <KnowledgeItem name="AWS" level={2} /> </ListItem>
                   </List>
                 </Grid>
               </Grid>
             </Section>
+          </Grid>
+
+          <Grid item>
+            <Box fontSize={14} fontColor="primary.main" fontStyle="italic">*Ratings are relative to my own skills</Box>
           </Grid>
 
           <Grid item>

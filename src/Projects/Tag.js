@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box } from '@material-ui/core';
 
-export default function Tag({tag, marginRight, marginLeft}) {
+export default function Tag({tag, marginRight, marginLeft, marginBottom, marginTop}) {
     return(
         <Box
             display="inline"
@@ -9,6 +9,8 @@ export default function Tag({tag, marginRight, marginLeft}) {
             borderColor="primary.main"
             mr={marginRight === undefined ? 0 : marginRight}
             ml={marginLeft === undefined ? 0 : marginLeft}
+            mt={marginTop === undefined ? 0 : marginTop}
+            mb={marginBottom === undefined ? 0 : marginBottom}
             px={1}
             py={.5}
             borderRadius={3}

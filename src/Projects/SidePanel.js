@@ -24,41 +24,39 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-export default function SidePanel({title, version, tags, season, year, websiteLink, githubLinks, tools}) {
+export default function SidePanel({title, subtitle, tags, season, year, websiteText, websiteUrl, githubLinks, tools}) {
     const classes = useStyles();
 
     return (
         <Box display="flex" flexDirection="column" height="fit-content" position="sticky" top={24}>
             {/*Title and Tags*/}
-            <Box display="flex" flexDirection="column" mb={16} className={classes.section}>
+            <Box display="flex" flexDirection="column" mb={8} className={classes.section}>
                 {/*Title*/}
-                <Box display="flex" alignItems="center">
-                    <Box display="inline" fontFamily="Neucha" fontSize={24} color="primary.main">{title}</Box>
-                    {
-                        version && <Box display="inline" fontFamily="Neucha" fontSize={14} color="primary.main" ml={1} mt={.25} fontWeight="fontWeightLight">[{version}]</Box>
-                    }
+                <Box display="flex" flexDirection="column">
+                    <Box display="flex" fontFamily="Neucha" fontSize={24} color="primary.main">{title}</Box>
+                    {subtitle && <Box display="flex" fontSize={14} fontWeight="fontWeightLight" color="primary.main" mb={2}>{subtitle}</Box>}
                 </Box>
                 {/*Tags*/}
-                <Box display="flex">
+                <Box display="flex" flexWrap="wrap">
                     {
                         tags &&
                         tags.map((tag, index) => {
-                            return <Tag tag={tag} key={index} marginRight={1}/>
+                            return <Tag tag={tag} key={index} marginRight={1} marginBottom={1}/>
                         })
                     }
                 </Box>
             </Box>
             {/*Links*/}
-            { (websiteLink || githubLinks) &&
+            { ((websiteText && websiteUrl)|| githubLinks) &&
                 <Box display="flex" flexDirection="column" className={classes.section}>
                     {
-                        websiteLink &&
+                        websiteUrl && websiteText &&
                         <Box display="flex" className={classes.linkContainer}>
                             <LinkRoundedIcon className={classes.icon}/>
-                            <Box display="inline"><a href={`https://www.${websiteLink}`}
+                            <Box display="flex" maxWidth={200}><a href={websiteUrl}
                                                      target="_blank"
                                                      rel="noopener noreferrer"
-                                                     className={classes.link}>{websiteLink}</a></Box>
+                                                     className={classes.link}>{websiteText}</a></Box>
                         </Box>
                     }
                     {
@@ -67,7 +65,7 @@ export default function SidePanel({title, version, tags, season, year, websiteLi
                             return (
                                 <Box display="flex" alignItems="center" key={index} className={classes.linkContainer}>
                                     <img src={GitHub} className={classes.icon} alt="GitHub"/>
-                                    <Box display="inline"><a href={`https://www.github.com/${link}`} target="_blank"
+                                    <Box display="flex" maxWidth={200}><a href={`https://www.github.com/${link}`} target="_blank"
                                                              rel="noopener noreferrer"
                                                              className={classes.link}>{link}</a></Box>
                                 </Box>
@@ -83,7 +81,7 @@ export default function SidePanel({title, version, tags, season, year, websiteLi
             </Box>
             {/*Tools*/}
             <Box display="flex" flexDirection="column">
-                <Box display="inline" fontWeight="fontWeightSemiBold" fontSize={16} color="primary.main" mb={2}>Tools</Box>
+                <Box display="flex" fontWeight="fontWeightSemiBold" fontSize={16} color="primary.main" mb={2}>Tools</Box>
                 {
                     tools &&
                     <Box display="flex" flexDirection="column">
