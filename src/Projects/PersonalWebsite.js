@@ -1,5 +1,5 @@
 import React from 'react';
-import { AffinityTool, AWSTool, FigmaTool, MUITool, ReactTool } from "./Tools/Tool";
+import { AffinityTool, AWSAmplifyTool, FigmaTool, MUITool, ReactTool } from "./Tool";
 import PersonalWebsiteCard from '../assets/projects/personal-website-card.png';
 import Split from '../assets/projects/background-color-split.png';
 import LayoutImage from '../assets/projects/layout.png';
@@ -22,14 +22,14 @@ export default function PersonalWebsite() {
                     <FigmaTool key={2}/>,
                     <ReactTool key={3}/>,
                     <MUITool key={4}/>,
-                    <AWSTool key={5}/>,
+                    <AWSAmplifyTool key={5}/>,
                 ],
             }}
             overview={{
                 text: [
                     "The goal of this project was to build a professional portfolio website to showcase both my design and front end development skills.",
                     "My biggest challenges for this project were figuring out a theme and interface design for the website as well as creating an easy to follow and information organization for the projects page. Through an iterative process I was able to land on a creative and cohesive design for the UI. And by mocking up the layout of the projects in figma before writing any code for it, I was able to come up with an informative and clean layout.",
-                    "I built this website using React and Material UI. I designed and wireframes some portions of the UI in Figma and created the assets in Affinity Designer. The website itself was originally hosted using an AWS S3 bucket but I have since transitioned to using an AWS Amplify project for easier continuous deployment."
+                    "I built this website using React and Material UI. I designed and wireframed some portions of the UI in Figma and created the assets in Affinity Designer. The website itself was originally hosted using an AWS S3 bucket but I have since transitioned to using an AWS Amplify project for easier continuous deployment."
                 ],
                 image: PersonalWebsiteCard,
                 imageStyle: {height: "225px"}

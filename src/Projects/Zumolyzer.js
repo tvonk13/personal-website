@@ -1,16 +1,17 @@
 import React from 'react';
-import { FigmaTool } from "./Tools/Tool";
+import { Box } from '@material-ui/core';
+import { FigmaTool } from './Tool';
 import ZumolyzerCard from '../assets/projects/zumolyzer-card.png';
 import Wireframe from '../assets/projects/zumolyzer-wireframe.png'
 import Wireframes from '../assets/projects/zumolyzer-wireframes.png';
-import ProjectPage from "./ProjectPage";
+import ProjectPage from './ProjectPage';
 
 export default function Zumolyzer() {
     return (
         <ProjectPage
             sidePanel = {{
                 projectTitle: "Zumolyzer",
-                subtitle: "Designed a mockup of a web app for Zumo Labs",
+                subtitle: <Box display="inline">Designed a mockup of a web app for <a href="https://www.zumolabs.ai" target="_blank" rel="noopener noreferrer"style={{color: "#37374A"}}>Zumo Labs</a></Box>,
                 tags: ["UX"],
                 season: "Fall",
                 year: "2019",

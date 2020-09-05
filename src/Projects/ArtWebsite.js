@@ -1,5 +1,5 @@
 import React from 'react';
-import { AffinityTool, AWSTool, FigmaTool, MUITool, ReactTool } from "./Tools/Tool";
+import { AffinityTool, AWSAmplifyTool, FigmaTool, MUITool, ReactTool } from "./Tool";
 import ArtWebsiteCard from '../assets/projects/art-website-card.png';
 import Grids from '../assets/projects/grids.png';
 import ProjectPage from "./ProjectPage";
@@ -21,7 +21,7 @@ export default function ArtWebsite() {
                     <FigmaTool key={2}/>,
                     <ReactTool key={3}/>,
                     <MUITool key={4}/>,
-                    <AWSTool key={5}/>,
+                    <AWSAmplifyTool key={5}/>,
                 ],
             }}
             overview={{

@@ -1,10 +1,14 @@
 import React from 'react';
 import { Box, Grid, makeStyles } from '@material-ui/core';
-import Figma from '../../assets/tools/figma.png';
-import Affinity from '../../assets/tools/affinity-designer.png';
-import ReactLogo from '../../assets/tools/react.png';
-import MUI from '../../assets/tools/mui.png';
-import AWS from '../../assets/tools/aws-amplify.png';
+import Figma from '../assets/tools/figma.png';
+import Affinity from '../assets/tools/affinity-designer.png';
+import ReactLogo from '../assets/tools/react.png';
+import MUI from '../assets/tools/mui.png';
+import AWSAmplify from '../assets/tools/aws-amplify.png';
+import AWSLambda from '../assets/tools/aws-lambda-logo.png';
+import AWSAPIGateway from '../assets/tools/aws-api-gateway-logo.svg';
+import AWSGraphql from '../assets/tools/aws-graphql-logo.png';
+import AWSCognito from '../assets/tools/aws-cognito-logo.png';
 
 const useStyles = makeStyles(theme => ({
     icon: {
@@ -45,7 +49,27 @@ export function MUITool({text}) {
     return <Tool text={toolText} icon={MUI}/>
 }
 
-export function AWSTool({text}) {
+export function AWSAmplifyTool({text}) {
     const toolText = text === undefined ? "AWS Amplify" : text;
-    return <Tool text={toolText} icon={AWS}/>
+    return <Tool text={toolText} icon={AWSAmplify}/>
+}
+
+export function AWSAPIGatewayTool({text}) {
+    const toolText = text === undefined ? "AWS API Gateway" : text;
+    return <Tool text={toolText} icon={AWSAPIGateway}/>
+}
+
+export function AWSLambdaTool({text}) {
+    const toolText = text === undefined ? "AWS Lambda" : text;
+    return <Tool text={toolText} icon={AWSLambda}/>
+}
+
+export function AWSGraphqlTool({text}) {
+    const toolText = text === undefined ? "AWS Graphql" : text;
+    return <Tool text={toolText} icon={AWSGraphql}/>
+}
+
+export function AWSCognitoTool({text}) {
+    const toolText = text === undefined ? "AWS Cognito" : text;
+    return <Tool text={toolText} icon={AWSCognito}/>
 }

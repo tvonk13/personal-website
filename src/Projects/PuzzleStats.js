@@ -1,5 +1,13 @@
 import React from 'react';
-import { AffinityTool, AWSTool, FigmaTool, MUITool, ReactTool } from "./Tools/Tool";
+import {
+    AffinityTool,
+    AWSAmplifyTool,
+    AWSAPIGatewayTool,
+    AWSLambdaTool,
+    FigmaTool,
+    MUITool,
+    ReactTool
+} from "./Tool";
 import ProjectPage from "./ProjectPage";
 import PuzzleStatsCard from '../assets/projects/puzzle-stats-card.png';
 
@@ -20,14 +28,16 @@ export default function PuzzleStats() {
                     <FigmaTool key={2}/>,
                     <ReactTool key={3}/>,
                     <MUITool key={4}/>,
-                    <AWSTool key={5}/>,
+                    <AWSAmplifyTool key={5}/>,
+                    <AWSLambdaTool key={6}/>,
+                    <AWSAPIGatewayTool key={7}/>,
                 ],
             }}
             overview={{
                 text: [
                     "The goal of this project was to build a website for users to view more detailed information and statistics about their NY Times Crossword Puzzle data. This was a personal project inspired by my love of doing the NY Times Crossword Puzzle and my frustrations with the NY Times’ lack of available data and statistics.",
-                    "One of the challenges for this project was figuring out how to implement a back end without an official API from the NY Times. After building a full back-end, I found that the lack of an official API required too many work-arounds to make the project feasible. I ultimately decided to pare back the entire project to just a demo version so that I could focus on designing the front-end. This demo version is viewable at the link provided and the github repo puzzle-stats-demo. The full back-end version of the code resides in the github repo puzzle-stats-hard-mode.",
-                    "I built the initial back-end for this application using AWS API Gateway and AWS Lambda for the unofficial API. I also utilized AWS Amplify to implement a database with AWS AppSync and user authentication with AWS Cognito. I built the front-end using React and Material UI and used Nivo for the graphing capabilities. The website itself is hosted using an AWS Amplify.",
+                    "One of the challenges for this project was figuring out how to implement a back end without an official API from the NY Times. After building a full back end, I found that the lack of an official API required too many work-arounds to make the project feasible. I ultimately decided to pare back the entire project to just a demo version so that I could focus on designing the front-end. This demo version is viewable at the link provided and the github repo puzzle-stats-demo. The full back end version of the code resides in the github repo puzzle-stats-hard-mode.",
+                    "I built the initial back end for this application using AWS API Gateway and AWS Lambda for the unofficial API. I also utilized AWS Amplify to implement a database with AWS AppSync and user authentication with AWS Cognito. I built the front-end using React and Material UI and used Nivo for the graphing capabilities. The website itself is hosted using an AWS Amplify.",
                 ],
                 image: PuzzleStatsCard,
                 imageStyle: {height: "200px"},
@@ -47,7 +57,7 @@ export default function PuzzleStats() {
             }}
             successes={{
                 text: [
-                    "The biggest success of this project was being able to forge through unfamiliar back-end technologies to build a full application despite many challenges and a full-time job. Although I have experience back-end development, I have never built a back-end from start to finish and a lot of the stack that I used for this project was brand new to me. Nonetheless, I spent countless hours learning and experimenting with different approaches to solve the various challenges that arose. Ultimately, I am happy that I was able to see the back-end through to the end until the issues were out of my hands. And now that I am able to focus on the front end, I am excited to be able to design and flesh out even more features.",
+                    "The biggest success of this project was being able to forge through unfamiliar back end technologies to build a full application despite many challenges and a full-time job. Although I have experience back end development, I have never built a back end from start to finish and a lot of the stack that I used for this project was brand new to me. Nonetheless, I spent countless hours learning and experimenting with different approaches to solve the various challenges that arose. Ultimately, I am happy that I was able to see the back end through to the end until the issues were out of my hands. And now that I am able to focus on the front end, I am excited to be able to design and flesh out even more features.",
                 ]
             }}
         />
