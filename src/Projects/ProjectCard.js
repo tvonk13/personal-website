@@ -6,20 +6,22 @@ import { Link } from "react-router-dom";
 const useStyles = makeStyles(theme => ({
     title: {
         textDecoration: 'none',
-        '&:hover': {
-            textDecoration: 'underline',
-        }
     },
     tag: {
         margin: theme.spacing(2)
+    },
+    tile: {
+        "&:hover": {
+            opacity: 0.4
+        },
     }
 }));
 
 export default function ProjectCard({title, tags, img, link}) {
     const classes = useStyles();
     return (
-        <Grid container direction="column" alignItems="center">
-            <Box component={Link} to={"projects/" + link} display="inline" fontFamily="Neucha" fontSize={24} color="primary.main" className={classes.title}>{title}</Box>
+        <Grid container direction="column" alignItems="center" style={{marginTop: "16px"}}>
+            <Box display="flex" fontFamily="Neucha" fontSize={24} color="primary.main" className={classes.title}>{title}</Box>
             <Grid item container justify="center">
                 {
                     tags &&
@@ -35,11 +37,15 @@ export default function ProjectCard({title, tags, img, link}) {
                  boxShadow="2px 2px 10px #888899"
                  borderRadius={3}
                  style={{
-                    backgroundImage: `url(${img})`,
-                    backgroundRepeat: 'no-repeat',
-                    backgroundPosition: 'center top',
-                    backgroundSize: 'cover'
-                 }}></Box>
+                     backgroundImage: `url(${img})`,
+                     backgroundRepeat: 'no-repeat',
+                     backgroundPosition: 'center top',
+                     backgroundSize: 'cover',
+                 }}
+                 className={classes.tile}
+                 component={Link}
+                 to={"projects/" + link}
+                 ></Box>
         </Grid>
     )
 }

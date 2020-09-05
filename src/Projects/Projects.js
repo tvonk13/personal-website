@@ -20,18 +20,18 @@ export default function Projects() {
             <Grid container direction="column" spacing={5}>
                 <Grid item container justify="space-evenly">
                     <Grid item>
-                        <ProjectCard title="Personal Website" img={PersonalWebsiteCard} tags={["UI", "UX", "Front End Dev"]} link="personal-website"/>
+                        <ProjectCard title="Personal Website" img={PersonalWebsiteCard} tags={["UX", "Front End Dev"]} link="personal-website"/>
                     </Grid>
                     <Grid item>
-                        <ProjectCard title="Art Website" img={ArtWebsiteCard} tags={["UI", "UX", "Front End Dev"]} link="art-website"/>
+                        <ProjectCard title="Art Website" img={ArtWebsiteCard} tags={["UX", "Front End Dev"]} link="art-website"/>
                     </Grid>
                 </Grid>
                 <Grid item container justify="space-evenly">
                     <Grid item>
-                        <ProjectCard title="Puzzle Stats" img={PuzzleStatsCard} tags={["UI", "UX", "Front End Dev", "Back End Dev"]} link="puzzle-stats"/>
+                        <ProjectCard title="Puzzle Stats" img={PuzzleStatsCard} tags={["UX", "Front End Dev", "Back End Dev"]} link="puzzle-stats"/>
                     </Grid>
                     <Grid item>
-                        <ProjectCard title="Zumolyzer" img={ZumolyzerCard} tags={["UI", "UX"]} link="zumolyzer"/>
+                        <ProjectCard title="Zumolyzer" img={ZumolyzerCard} tags={["UX"]} link="zumolyzer"/>
                     </Grid>
                 </Grid>
             </Grid>

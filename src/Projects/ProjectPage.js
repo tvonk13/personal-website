@@ -8,8 +8,9 @@ const useStyles = makeStyles(theme => ({
         paddingLeft: theme.spacing(4),
         paddingRight: theme.spacing(4),
         paddingTop: theme.spacing(6),
-        paddingBottom: theme.spacing(6),
+        paddingBottom: theme.spacing(8),
         flexGrow: 1,
+        flexWrap: "nowrap",
     },
     section: {
         marginBottom: theme.spacing(5),
@@ -60,7 +61,7 @@ export default function ProjectPage(props) {
                 />
             </Box>
             {/*Content*/}
-            <Box display="flex" flexGrow={1} maxWidth="calc(100% - 266px)" borderLeft={1} borderColor="primary.main" paddingLeft={4} flexDirection="column">
+            <Box display="flex" flexGrow={1} borderLeft={1} borderColor="primary.main" paddingLeft={4} flexDirection="column">
                 {/*Overview*/}
                 <Box display="flex" flexDirection="column" mb={5} mt={-1}>
                     <Box display="flex" alignItems="center" className={classes.sectionHeading}>

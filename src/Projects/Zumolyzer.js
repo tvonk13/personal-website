@@ -31,7 +31,6 @@ export default function Zumolyzer() {
                         title: "Loosely Defined Specification",
                         image: Wireframe,
                         imageStyle: {height: "300px", marginRight: "16px"},
-                        //imageOrder: 1,
                         text: [
                             "The biggest challenge of this project was that the company had not yet decided the exact scope of their product so I was given a very loosely defined specification. So to begin the design process, I worked with one of the team’s developers to hone in on a direction and gather information about the content. This provided me with a more detailed specification to work with. I then did a white-boarding session with my product manager friend in which we discussed various ways to narrow down the important workflows and the variations between different user account states. From there, I touched base with the developer about what information the data-viewing and configuration pages would contain and what controls the user should be allowed to have over both. We also discussed the general concepts behind synthetic data so that I could have a deeper understanding of the workflows I was going to be designing. With all this information in hand, I was able to create the high-fidelity wireframes shown below."
                         ],

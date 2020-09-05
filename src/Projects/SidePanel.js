@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Box, makeStyles } from '@material-ui/core';
+import { Box, makeStyles } from '@material-ui/core';
 import Tag from "./Tag";
 import GitHub from "../assets/github-dark.svg";
 import LinkRoundedIcon from '@material-ui/icons/LinkRounded';
