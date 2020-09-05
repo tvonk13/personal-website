@@ -1,5 +1,5 @@
 import React, { Fragment }  from 'react';
-import { makeStyles, AppBar, Tabs, Tab, Typography, Grid, Toolbar, Popper, Grow, Paper, ClickAwayListener, MenuList, MenuItem, Box } from "@material-ui/core";
+import { makeStyles, AppBar, Typography, Grid, Toolbar, Popper, Grow, Paper, ClickAwayListener, MenuList, MenuItem, Box } from "@material-ui/core";
 import { Link, useLocation } from "react-router-dom";
 import clsx from "clsx";
 
@@ -49,10 +49,6 @@ function Nav() {
 
     const [open, setOpen] = React.useState(false);
     const anchorRef = React.useRef(null);
-
-    const handleToggle = () => {
-        setOpen((prevOpen) => !prevOpen);
-    };
 
     const handleOpen = () => {
         setOpen(true);
@@ -115,12 +111,14 @@ function Nav() {
                                                 [classes.paperHome] : pathname === "/",
                                                 [classes.paper] : pathname !== "/",
                                         })}>
-                                            <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                                                <MenuItem to="/projects/personal-website" component={Link} onClick={handleClose}>Personal Website</MenuItem>
-                                                <MenuItem to="/projects/art-website" component={Link} onClick={handleClose}>Art Website</MenuItem>
-                                                <MenuItem to="/projects/puzzle-stats" component={Link} onClick={handleClose}>Puzzle Stats</MenuItem>
-                                                <MenuItem to="/projects/zumolyzer" component={Link} onClick={handleClose}>Zumolyzer</MenuItem>
-                                            </MenuList>
+                                            <ClickAwayListener onClickAway={close}>
+                                                <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
+                                                    <MenuItem to="/projects/personal-website" component={Link} onClick={handleClose}>Personal Website</MenuItem>
+                                                    <MenuItem to="/projects/art-website" component={Link} onClick={handleClose}>Art Website</MenuItem>
+                                                    <MenuItem to="/projects/puzzle-stats" component={Link} onClick={handleClose}>Puzzle Stats</MenuItem>
+                                                    <MenuItem to="/projects/zumolyzer" component={Link} onClick={handleClose}>Zumolyzer</MenuItem>
+                                                </MenuList>
+                                            </ClickAwayListener>
                                         </Paper>
                                     </Grow>
                                 )}
