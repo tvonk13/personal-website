@@ -24,8 +24,9 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-export default function SidePanel({title, subtitle, tags, season, year, websiteText, websiteUrl, githubLinks, tools}) {
+export default function SidePanel(props) {
     const classes = useStyles();
+    const {title, subtitle, tags, season, year, websiteText, websiteUrl, githubLinks, tools} = props;
 
     return (
         <Box display="flex" flexDirection="column" height="fit-content" position="sticky" top={24}>
@@ -34,7 +35,12 @@ export default function SidePanel({title, subtitle, tags, season, year, websiteT
                 {/*Title*/}
                 <Box display="flex" flexDirection="column">
                     <Box display="flex" fontFamily="Neucha" fontSize={24} color="primary.main">{title}</Box>
-                    {subtitle && <Box display="flex" fontSize={14} fontWeight="fontWeightLight" color="primary.main" mb={2}>{subtitle}</Box>}
+                    {
+                        subtitle &&
+                        <Box display="flex" fontSize={14} fontWeight="fontWeightLight" color="primary.main" mb={2}>
+                            {subtitle}
+                        </Box>
+                    }
                 </Box>
                 {/*Tags*/}
                 <Box display="flex" flexWrap="wrap">

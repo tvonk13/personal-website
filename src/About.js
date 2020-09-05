@@ -33,7 +33,7 @@ function About() {
     }, []);
 
     return (
-        <Fade in={loaded} timeout={1500}>
+        <Fade in={loaded} timeout={500}>
             <Container maxWidth="md" className={styles.about}>
                 <Grid container justify="center" alignItems="center" direction="column" spacing={2}>
                     <Grid item className={styles.profileContainer}>

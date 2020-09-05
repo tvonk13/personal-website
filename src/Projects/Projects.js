@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, makeStyles, Grid } from '@material-ui/core';
+import {Container, makeStyles, Grid, Fade} from '@material-ui/core';
 import ProjectCard from "./ProjectCard";
 import PersonalWebsiteCard from '../assets/projects/personal-website-card.png';
 import ArtWebsiteCard from '../assets/projects/art-website-card.png';
@@ -17,24 +17,26 @@ export default function Projects() {
     const classes = useStyles();
     return (
         <Container maxWidth="md" className={classes.projects}>
-            <Grid container direction="column" spacing={5}>
-                <Grid item container justify="space-evenly">
-                    <Grid item>
-                        <ProjectCard title="Personal Website" img={PersonalWebsiteCard} tags={["UX", "Front End Dev"]} link="personal-website"/>
+            <Fade in={true} timeout={500}>
+                <Grid container direction="column" spacing={5}>
+                    <Grid item container justify="space-evenly">
+                        <Grid item>
+                            <ProjectCard title="Personal Website" img={PersonalWebsiteCard} tags={["UX", "Front End Dev"]} link="personal-website"/>
+                        </Grid>
+                        <Grid item>
+                            <ProjectCard title="Art Website" img={ArtWebsiteCard} tags={["UX", "Front End Dev"]} link="art-website"/>
+                        </Grid>
                     </Grid>
-                    <Grid item>
-                        <ProjectCard title="Art Website" img={ArtWebsiteCard} tags={["UX", "Front End Dev"]} link="art-website"/>
+                    <Grid item container justify="space-evenly">
+                        <Grid item>
+                            <ProjectCard title="Puzzle Stats" img={PuzzleStatsCard} tags={["UX", "Front End Dev", "Back End Dev"]} link="puzzle-stats"/>
+                        </Grid>
+                        <Grid item>
+                            <ProjectCard title="Zumolyzer" img={ZumolyzerCard} tags={["UX"]} link="zumolyzer"/>
+                        </Grid>
                     </Grid>
                 </Grid>
-                <Grid item container justify="space-evenly">
-                    <Grid item>
-                        <ProjectCard title="Puzzle Stats" img={PuzzleStatsCard} tags={["UX", "Front End Dev", "Back End Dev"]} link="puzzle-stats"/>
-                    </Grid>
-                    <Grid item>
-                        <ProjectCard title="Zumolyzer" img={ZumolyzerCard} tags={["UX"]} link="zumolyzer"/>
-                    </Grid>
-                </Grid>
-            </Grid>
+            </Fade>
         </Container>
         )
 }

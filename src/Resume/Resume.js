@@ -25,7 +25,7 @@ function Resume() {
   }, [])
 
   return (
-    <Fade in={loaded} timeout={1500}>
+    <Fade in={loaded} timeout={500}>
       <Container maxWidth="md" className={styles.resume}>
 
         <Grid container justify="flex-start" direction="column" spacing={5}>

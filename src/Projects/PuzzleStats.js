@@ -3,7 +3,6 @@ import { AffinityTool, AWSTool, FigmaTool, MUITool, ReactTool } from "./Tools/To
 import ProjectPage from "./ProjectPage";
 import PuzzleStatsCard from '../assets/projects/puzzle-stats-card.png';
 
-
 export default function PuzzleStats() {
     return (
         <ProjectPage
@@ -48,7 +47,7 @@ export default function PuzzleStats() {
             }}
             successes={{
                 text: [
-                    "The biggest success of this project was being able to forge through unfamiliar back-end technologies to build a full application despite many challenges and a full-time job. Although I have worked on back-end development before, I have never built a back-end from start to finish and a lot of the stack that I used for this project was brand new to me. Nonetheless I spent countless hours learning and experimenting with different approaches to solve the various challenges that arose. Ultimately I am happy that I was able to see the back-end through to the end until the issues were out of my hands before deciding to pare it back. And now that I am able to focus on the front end, I am excited about being able to design and flesh out even more features.",
+                    "The biggest success of this project was being able to forge through unfamiliar back-end technologies to build a full application despite many challenges and a full-time job. Although I have experience back-end development, I have never built a back-end from start to finish and a lot of the stack that I used for this project was brand new to me. Nonetheless, I spent countless hours learning and experimenting with different approaches to solve the various challenges that arose. Ultimately, I am happy that I was able to see the back-end through to the end until the issues were out of my hands. And now that I am able to focus on the front end, I am excited to be able to design and flesh out even more features.",
                 ]
             }}
         />
