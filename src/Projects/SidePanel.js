@@ -13,7 +13,8 @@ const useStyles = makeStyles(theme => ({
         marginRight: theme.spacing(2),
     },
     linkContainer: {
-      marginBottom: theme.spacing(.5),
+        height: theme.spacing(4),
+        alignItems: "center",
     },
     link: {
         color: theme.palette.primary.main,
@@ -54,7 +55,7 @@ export default function SidePanel(props) {
             </Box>
             {/*Links*/}
             { ((websiteText && websiteUrl)|| githubLinks) &&
-                <Box display="flex" flexDirection="column" className={classes.section}>
+                <Box display="flex" flexDirection="column" justifyContent="space-evenly" className={classes.section}>
                     {
                         websiteUrl && websiteText &&
                         <Box display="flex" className={classes.linkContainer}>

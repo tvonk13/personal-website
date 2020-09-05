@@ -21,8 +21,8 @@ export default function Zumolyzer() {
             }}
             overview={{
                 text: [
-                    "The goal of this project was to design a web application user interface for Zumo Labs that allows users to view and configure data for machine learning. The company is a small start up that creates synthetic data for computer vision-related AI using video game engines. In the initial stages, the web app, called Zumolyzer, was intended to allow users to configure and generate their own data and be able to view and download those datasets.",
-                    "The biggest challenge for this project was having a loosely defined spec in addition to a limited knowledge of user experience design. However, I was able to use my intuitive design skills and the help of a product manager friend to mock up a basic account log in/creation workflow, a page for viewing datasets, and a configuration workflow. And although the company has since moved their product scope in a different direction, the current data page is still loosely based on my original concept.",
+                    "The goal of this project was to design a web application user interface for Zumo Labs that would allow users to view and configure data for machine learning. The company is a small start up that creates synthetic data for computer vision-related AI using video game engines. In the initial stages, the web app, called Zumolyzer, was intended to allow users to configure and generate their own data and be able to view and download those datasets.",
+                    "The biggest challenge for this project was having a loosely defined specification in addition to a limited knowledge of user experience design. However, I was able to use my intuitive design skills and the help of a product manager friend to mock up an account log in/creation workflow, a page for viewing datasets, and a configuration workflow. And although the company has since moved their product scope in a different direction, the current data page is still loosely based on my original concept.",
                 ],
                 image: ZumolyzerCard
             }}
@@ -41,7 +41,7 @@ export default function Zumolyzer() {
             }}
             successes={{
                 text: [
-                    "The biggest success of this project was being able to create a useful wireframe despite having little to no UI/UX experience nor a well-defined specification. And even though the product ended up going in a different direction than my design, the developer found it very useful to have a template to work with because it was one less thing for him to figure out amidst the daunting task of building an entire web application. The wireframes are shown below and include the page for viewing datasets, the page for configuring a dataset, a tooltip modal for explaining what a scene is, the account creation and log in modals, and the modal for downloading a dataset when not logged in."
+                    "My biggest success of this project was being able to create a useful wireframe despite having little to no UI/UX experience nor a well-defined specification. And even though the product ended up going in a different direction than my design, the developer found it very useful to have a template to work with because it was one less thing for him to figure out amidst the daunting task of building an entire web application. The wireframes are shown below and include the page for viewing datasets, the page for configuring a dataset, a tooltip modal for explaining what a scene is, the account creation and log in modals, and the modal for downloading a dataset when not logged in."
                 ],
                 image: Wireframes,
                 imageStyle: {width: "1000px", marginTop: "16px"},

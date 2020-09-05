@@ -22,8 +22,8 @@ export function Tool({icon, text}) {
     const classes = useStyles();
 
     return (
-        <Grid container alignItems="center" style={{marginBottom: '8px'}}>
-            <img src={icon} className={classes.icon} alt="GitHub" />
+        <Grid container alignItems="center" style={{height: "35px"}}>
+            <img src={icon} className={classes.icon} alt={text} />
             <Box display="inline" fontWeight="fontWeightLight" color="primary.main">{text}</Box>
         </Grid>
     )
