@@ -7,7 +7,7 @@ const useStyles = makeStyles(theme => ({
     container: {
         paddingLeft: theme.spacing(4),
         paddingRight: theme.spacing(4),
-        paddingTop: theme.spacing(4),
+        paddingTop: theme.spacing(6),
         paddingBottom: theme.spacing(6),
         flexGrow: 1,
     },
@@ -46,7 +46,7 @@ export default function ProjectPage(props) {
     return (
         <Grid container className={classes.container}>
             {/*Side panel*/}
-            <Box display='flex' width={250} mr={2}>
+            <Box display='flex' width={250} mr={2} mt={-1}>
                 <SidePanel
                     title={sidePanel.projectTitle}
                     subtitle={sidePanel.subtitle}
@@ -62,7 +62,7 @@ export default function ProjectPage(props) {
             {/*Content*/}
             <Box display="flex" flexGrow={1} maxWidth="calc(100% - 266px)" borderLeft={1} borderColor="primary.main" paddingLeft={4} flexDirection="column">
                 {/*Overview*/}
-                <Box display="flex" flexDirection="column" mb={5}>
+                <Box display="flex" flexDirection="column" mb={5} mt={-1}>
                     <Box display="flex" alignItems="center" className={classes.sectionHeading}>
                         <Bullet radius={10} offsetLeft="-37.5px" offsetRight="28px"/>
                         <Box fontSize={18} color="primary.main" fontWeight="fontWeightSemiBold">Overview</Box>
@@ -73,7 +73,7 @@ export default function ProjectPage(props) {
                                 overview.text.map((paragraph, index) => <Paragraph text={paragraph} key={index}/>)
                             }
                         </Box>
-                        <img src={overview.image} alt={projectTitle} style={{width: "375px", height: "200px"}}/>
+                        <img src={overview.image} alt={projectTitle} style={overview.imageStyle ? overview.imageStyle : {width: "375px"}}/>
                     </Box>
                 </Box>
                 {/*Challenges*/}
@@ -112,6 +112,11 @@ export default function ProjectPage(props) {
                     <Box fontSize={14} color="primary.main" fontWeight="fontWeightLight">
                         {successes.text}
                     </Box>
+                    { successes.image &&
+                        <Box display="flex" order={successes.imageOrder}>
+                            <img src={successes.image} alt="Successes" order={successes.imageOrder} style={successes.imageStyle}/>
+                        </Box>
+                    }
                 </Box>
             </Box>
         </Grid>

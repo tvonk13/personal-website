@@ -11,7 +11,7 @@ export default function PersonalWebsite() {
             sidePanel = {{
                 projectTitle: "Personal Website",
                 subtitle: "Designed and built a website for my professional portfolio",
-                tags: ["UI", "UX", "Front End Dev"],
+                tags: ["UX", "Front End Dev"],
                 season: "Spring",
                 year: "2020",
                 websiteText: "taylorvonk.com",
@@ -31,24 +31,25 @@ export default function PersonalWebsite() {
                     "My biggest challenges for this project were figuring out a theme and interface design for the website as well as creating an easy to follow and information organization for the projects page. Through an iterative process I was able to land on a creative and cohesive design for the UI. And by mocking up the layout of the projects in figma before writing any code for it, I was able to come up with an informative and clean layout.",
                     "I built this website using React and Material UI. I designed and wireframes some portions of the UI in Figma and created the assets in Affinity Designer. The website itself was originally hosted using an AWS S3 bucket but I have since transitioned to using an AWS Amplify project for easier continuous deployment."
                 ],
-                image: PersonalWebsiteCard
+                image: PersonalWebsiteCard,
+                imageStyle: {height: "225px"}
             }}
             challenges={{
                 content: [
                     {
                         title: "Design",
                         image: Split,
-                        imageStyle: {width: "250px", height: "156px", marginRight: "16px"},
+                        imageStyle: {height: "180px", marginRight: "16px"},
                         imageOrder: 0,
                         text: [
-                            "Because this website is meant to showcase my style and skill as a designer and developer, the first and biggest challenge was designing the look and feel of it. Instead of sticking with a commonly-used minimalist style, I decided to use a mountain and nature-themed design because I love the outdoors and I felt it was more unique to my personality. However, I struggled with deciding on a color palette. I wanted something that could easily work with consistent primary and secondary colors throughout the website but also needed something that wouldn’t clash with a variety of content either. I started with a purple-based color scheme because it is my favorite color and after trying several combinations I decided on a palette that I liked. When I finished the first draft of the website, I found that the original colors felt too dark and gloomy. After another iteration of color combinations I came up with a brighter version of the original colors. I’ve found that this new palette is muted enough to work well with other colors but bright enough to feel lively.",
+                            "Because this website is meant to showcase my style and skills, the first and biggest challenge was designing the look and feel of it. Instead of sticking with a commonly-used minimalist style, I decided to use a mountain and nature-themed design because I love the outdoors and I felt it was more unique to my personality. However, I struggled with deciding on a color palette. I wanted something that could easily work with consistent primary and secondary colors throughout the website but also needed something that wouldn’t clash with a variety of content either. I started with a purple-based color scheme because it is my favorite color and after trying several combinations I decided on a palette that I liked. When I finished the first draft of the website, I found that the original colors felt too dark and gloomy. After another iteration of color combinations I came up with a brighter version of the original colors. I’ve found that this new palette is muted enough to work well with other colors but bright enough to feel lively.",
                         ],
                         flexDirection: "row"
                     },
                     {
                         title: "Layout",
                         image: LayoutImage,
-                        imageStyle: {height: "100px", width: "730px", marginTop: "16px"},
+                        imageStyle: {height: "275px", marginTop: "16px"},
                         imageOrder: 1,
                         text: [
                             "I knew, before I started working on the Projects section of this website, that figuring out the UI and layout was going to be challenging because there is a lot of information to convey for each project and the content of the information is varied between the different types of projects. Instead of getting ahead of myself and rushing through it, I decided to start by mocking up the layout in Figma before coding.",

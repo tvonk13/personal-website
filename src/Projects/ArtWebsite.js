@@ -10,7 +10,7 @@ export default function ArtWebsite() {
             sidePanel = {{
                 projectTitle: "Art Website",
                 subtitle: "Designed and built a website for my artwork and photography",
-                tags: ["UI", "UX", "Front End Dev"],
+                tags: ["UX", "Front End Dev"],
                 season: "Summer",
                 year: "2020",
                 websiteText: "tvonk.com",
@@ -33,7 +33,6 @@ export default function ArtWebsite() {
                 image: ArtWebsiteCard
             }}
             challenges={{
-                challengesStyle: {marginTop: "-48px"},
                 content: [
                     {
                         title: "Whitespace",
@@ -45,7 +44,7 @@ export default function ArtWebsite() {
                     {
                         title: "Image Manipulation",
                         image: Grids,
-                        imageStyle: {height: "200px", marginRight: "16px"},
+                        imageStyle: {height: "175px", marginRight: "16px"},
                         text: [
                             "The biggest technical challenge for this project was handling images and image manipulation. Because my artwork and photographs vary in both aspect ratio and resolution, I had to figure out how to make a clean-looking grid in which the images would sit evenly spaced. I initially tried using a masonry-style grid where the image sizes would stay true to their aspect ratios. However, I found that this meant that one side, either on the right or bottom, would need to be uneven which I did not like. This would also be difficult because it would require retrieving or storing the image dimensions so that the size could be calculated before the image loaded on the page. After trying several different ways of arranging the images and also searching for existing image gallery libraries, I decided that the simplest solution was to crop each image in the grid to the same size and keep a fixed number of columns. Since the images are meant to be viewed in full on their own individual pages anyways, I was satisfied with this compromise. Another challenge with images was figuring out how to load the grid efficiently because the image files themselves are fairly large and the number of images will only continue to grow. After a bit of experimentation, I decided to create smaller thumbnail images to display the grid and then use the original image for the individual pages."
                         ],
