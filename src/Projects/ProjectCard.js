@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
     },
     tile: {
         "&:hover": {
-            opacity: 0.4
+            opacity: 0.6
         },
     }
 }));
