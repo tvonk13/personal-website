@@ -4,9 +4,6 @@ import Tag from './Tag';
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
-    title: {
-        textDecoration: 'none',
-    },
     tag: {
         margin: theme.spacing(2)
     },
@@ -21,7 +18,7 @@ export default function ProjectCard({title, tags, img, link}) {
     const classes = useStyles();
     return (
         <Grid container direction="column" alignItems="center" style={{marginTop: "16px"}}>
-            <Box display="flex" fontFamily="Neucha" fontSize={24} color="primary.main" className={classes.title}>{title}</Box>
+            <Box display="flex" fontFamily="Neucha" fontSize={24} color="primary.main">{title}</Box>
             <Grid item container justify="center">
                 {
                     tags &&
@@ -45,7 +42,7 @@ export default function ProjectCard({title, tags, img, link}) {
                  className={classes.tile}
                  component={Link}
                  to={"projects/" + link}
-                 ></Box>
+                 />
         </Grid>
     )
 }

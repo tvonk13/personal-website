@@ -1,18 +1,18 @@
 import React from 'react';
-import { Typography, Grid } from "@material-ui/core";
+import { Grid, Box } from "@material-ui/core";
 
 function JobDescription({title, subtitle, bullets}){
     return(
         <Grid container direction="column">
             <Grid item>
-                <Typography variant="h6">{title}</Typography>
+                <Box fontSize={20} color="primary.main">{title}</Box>
             </Grid>
             <Grid item>
-                <Typography variant="body1" ><em>{subtitle}</em></Typography>
+                <Box fontSize={16} color="primary.main" fontWeight="fontWeightLight" fontStyle="italic">{subtitle}</Box>
             </Grid>
             <Grid item>
                 <ul>
-                    {bullets.map((bullet, index) => <li key={index}>{bullet}</li>)}
+                    {bullets.map((bullet, index) => <li key={index} style={{marginBottom: "8px", color: "#37374A"}}><Box fontSize={16} color="primary.main" fontWeight="fontWeightLight">{bullet}</Box></li>)}
                 </ul>
             </Grid>
         </Grid>

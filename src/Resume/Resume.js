@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { makeStyles, Typography, Container, Grid, List, ListItem, Fade, Box } from "@material-ui/core";
+import { makeStyles, Container, Grid, List, ListItem, Fade, Box } from "@material-ui/core";
 import Section from './Section'
 import JobContent from "./JobContent";
 import KnowledgeItem from "./KnowledgeItem";
-import Header from "./ResumeHeader";
+import ResumeHeader from "./ResumeHeader";
 
 const useStyles = makeStyles(theme => ({
   resume: {
@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function Resume() {
-  const styles = useStyles();
+  const classes = useStyles();
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -26,13 +26,13 @@ function Resume() {
 
   return (
     <Fade in={loaded} timeout={500}>
-      <Container maxWidth="md" className={styles.resume}>
+      <Container maxWidth="md" className={classes.resume}>
 
         <Grid container justify="flex-start" direction="column" spacing={5}>
 
           {/* HEADER */}
           <Grid item>
-            <Header />
+            <ResumeHeader />
           </Grid>
 
           {/* EDUCATION */}
@@ -87,7 +87,7 @@ function Resume() {
           <Grid item>
             <Section name="Languages/Frameworks*">
               <Grid container direction="row" justify="flex-start">
-                <Grid item className={styles.skillColumn}>
+                <Grid item className={classes.skillColumn}>
                   <List>
                     <ListItem> <KnowledgeItem name="JavaScript" level={5} /> </ListItem>
                     <ListItem> <KnowledgeItem name="React" level={5} /> </ListItem>
@@ -95,7 +95,7 @@ function Resume() {
                     <ListItem> <KnowledgeItem name="HTML" level={4} /> </ListItem>
                   </List>
                 </Grid>
-                <Grid item className={styles.skillColumn}>
+                <Grid item className={classes.skillColumn}>
                   <List>
                     <ListItem> <KnowledgeItem name="CSS" level={4} /> </ListItem>
                     <ListItem> <KnowledgeItem name="Struts" level={3} /> </ListItem>
@@ -110,14 +110,14 @@ function Resume() {
           <Grid item>
             <Section name="Software/Tools*">
             <Grid container direction="row" justify="space-between">
-                <Grid item className={styles.skillColumn}>
+                <Grid item className={classes.skillColumn}>
                   <List>
                     <ListItem> <KnowledgeItem name="IntelliJ" level={4} /> </ListItem>
                     <ListItem> <KnowledgeItem name="Git" level={3} /> </ListItem>
                     <ListItem> <KnowledgeItem name="MySQL" level={2} /> </ListItem>
                   </List>
                 </Grid>
-                <Grid item className={styles.skillColumn}>
+                <Grid item className={classes.skillColumn}>
                   <List>
                     <ListItem> <KnowledgeItem name="Figma" level={3} /> </ListItem>
                     <ListItem> <KnowledgeItem name="Affinity Designer" level={3} /> </ListItem>
@@ -129,16 +129,16 @@ function Resume() {
           </Grid>
 
           <Grid item>
-            <Box fontSize={14} fontColor="primary.main" fontStyle="italic">*Ratings are relative to my own skills</Box>
+            <Box fontSize={14} fontColor="primary.main" fontWeight="fontWeightLight">*Ratings are relative to my own skills</Box>
           </Grid>
 
           <Grid item>
             <Section name="Interests">
               <List>
-                <ListItem><Typography>Rock climbing</Typography></ListItem>
-                <ListItem><Typography>Reading sci-fi/fantasy adventure books and graphic novels</Typography></ListItem>
-                <ListItem><Typography>Playing board and RPG games</Typography></ListItem>
-                <ListItem><Typography>Drawing, painting, and illustrating</Typography></ListItem>
+                <ListItem><Box fontSize={16} fontColor="primary.main" fontWeight="fontWeightLight">Rock climbing</Box></ListItem>
+                <ListItem><Box fontSize={16} fontColor="primary.main" fontWeight="fontWeightLight">Reading sci-fi/fantasy adventure books and graphic novels</Box></ListItem>
+                <ListItem><Box fontSize={16} fontColor="primary.main" fontWeight="fontWeightLight">Playing board and RPG games</Box></ListItem>
+                <ListItem><Box fontSize={16} fontColor="primary.main" fontWeight="fontWeightLight">Drawing, painting, and illustrating</Box></ListItem>
               </List>
             </Section>
           </Grid>

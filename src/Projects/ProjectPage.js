@@ -23,6 +23,9 @@ const useStyles = makeStyles(theme => ({
     },
     subSection: {
         marginBottom: theme.spacing(4),
+        '&:last-child': {
+            marginBottom: theme.spacing(2)
+        }
     },
     subSectionHeading: {
         textDecoration: 'underline',
