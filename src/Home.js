@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
-import { makeStyles, Grid, Typography, Button, Container, Fade } from "@material-ui/core";
+import { makeStyles, Grid, Typography, Button, Container, Fade, Box } from "@material-ui/core";
 
 const useStyles = makeStyles(themeObject => ({
     homeContainer: {
@@ -26,14 +26,14 @@ function Home() {
             <Container maxWidth="sm" className={styles.homeContainer} >
                 <Grid container direction="column" alignItems="center" justify="center" spacing={2} >
                     <Grid item>
-                        <Typography variant="h3" color="primary" className={styles.hi} >
+                        <Box fontSize={48} color="primary.main" fontFamily="Neucha">
                             Hi, I'm Taylor!
-                        </Typography>
+                        </Box>
                     </Grid>
                     <Grid item>
-                        <Typography variant="body1" align="center" color="primary" paragraph >
-                            I am a software engineer who brings together technical skills and a passion for design to create elegantly functional and functionally elegant websites.
-                        </Typography>
+                        <Box fontSize={18} textAlign="center" color="primary.main" mb={2}>
+                            I am a software engineer with a passion for synthesizing sophisticated design and elegant functionality.
+                        </Box>
                     </Grid>
                     <Grid item>
                         <Button to="/projects" component={Link} variant="contained" color="primary" >

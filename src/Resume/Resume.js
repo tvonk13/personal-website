@@ -129,16 +129,16 @@ function Resume() {
           </Grid>
 
           <Grid item>
-            <Box fontSize={14} fontColor="primary.main" fontWeight="fontWeightLight">*Ratings are relative to my own skills</Box>
+            <Box fontSize={14} color="primary.main" fontWeight="fontWeightLight">*Ratings are relative to my own skills</Box>
           </Grid>
 
           <Grid item>
             <Section name="Interests">
               <List>
-                <ListItem><Box fontSize={16} fontColor="primary.main" fontWeight="fontWeightLight">Rock climbing</Box></ListItem>
-                <ListItem><Box fontSize={16} fontColor="primary.main" fontWeight="fontWeightLight">Reading sci-fi/fantasy adventure books and graphic novels</Box></ListItem>
-                <ListItem><Box fontSize={16} fontColor="primary.main" fontWeight="fontWeightLight">Playing board and RPG games</Box></ListItem>
-                <ListItem><Box fontSize={16} fontColor="primary.main" fontWeight="fontWeightLight">Drawing, painting, and illustrating</Box></ListItem>
+                <ListItem><Box fontSize={16} color="primary.main" fontWeight="fontWeightLight">Rock climbing</Box></ListItem>
+                <ListItem><Box fontSize={16} color="primary.main" fontWeight="fontWeightLight">Reading sci-fi/fantasy adventure books and graphic novels</Box></ListItem>
+                <ListItem><Box fontSize={16} color="primary.main" fontWeight="fontWeightLight">Playing board and RPG games</Box></ListItem>
+                <ListItem><Box fontSize={16} color="primary.main" fontWeight="fontWeightLight">Drawing, painting, and illustrating</Box></ListItem>
               </List>
             </Section>
           </Grid>

@@ -28,10 +28,10 @@ function KnowledgeItem({name, level}){
     return(
         <Grid container direction="row" justify="flex-start" wrap="nowrap" >
             <Grid item className={classes.description}>
-                <Box fontSize={16} fontColor="primary.main" fontWeight="fontWeightLight">{name}</Box>
+                <Box fontSize={16} color="primary.main" fontWeight="fontWeightLight">{name}</Box>
             </Grid>
             <Grid item>
-                {filled}
+                {filled}Ω
                 {unfilled}
             </Grid>
         </Grid>

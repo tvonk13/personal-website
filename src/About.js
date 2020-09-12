@@ -40,14 +40,14 @@ function About() {
                         </Fade>
                     </Grid>
                     <Grid item>
-                        <Box fontSize={16} fontColor="primary.main" fontWeight="fontWeightLight">
+                        <Box fontSize={16} color="primary.main" fontWeight="fontWeightLight">
                             Hi, I'm Taylor! I'm a Washington-based software engineer working for a tech company located in Boston. I have full-stack experience designing and building
                             Java and JavaScript -based web applications and websites. During off-hours I enjoy deepening my knowledge of
                             web development by working on personal projects like this website!
                         </Box>
                     </Grid>
                     <Grid item>
-                        <Box fontSize={16} fontColor="primary.main" fontWeight="fontWeightLight">
+                        <Box fontSize={16} color="primary.main" fontWeight="fontWeightLight">
                             When I'm not programming, I am an avid climber who loves being in the sun and goofing around on the rocks. A few years ago I was also introduced to the 
                             exciting world of triathlons and have been enjoying training in running, biking, and swimming! When flexing my creative muscles, I like exploring 
                             different mediums, like ink pens and acrylic and oil paint to create abstract artwork inspired by nature. Recently, I have been pursing digital art 
