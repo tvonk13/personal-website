@@ -31,7 +31,7 @@ function KnowledgeItem({name, level}){
                 <Box fontSize={16} color="primary.main" fontWeight="fontWeightLight">{name}</Box>
             </Grid>
             <Grid item>
-                {filled}Ω
+                {filled}
                 {unfilled}
             </Grid>
         </Grid>
