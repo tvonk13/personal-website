@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
-import { makeStyles, Grid, Typography, Button, Container, Fade, Box } from "@material-ui/core";
+import { makeStyles, Grid, Button, Container, Fade, Box } from "@material-ui/core";
 
 const useStyles = makeStyles(themeObject => ({
     homeContainer: {

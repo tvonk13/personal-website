@@ -3,9 +3,13 @@ import {makeStyles, Container, Grid, Fade, Box} from "@material-ui/core";
 import Profile from './assets/profile-full.svg';
 
 const useStyles = makeStyles(theme => ({
+    aboutContainer: {
+        [theme.breakpoints.down('xs')]: {
+            marginTop: theme.spacing(4),
+        },
+    },
     about: {
-        paddingTop: theme.spacing(4),
-        marginBottom: theme.spacing(6),
+        margin: theme.spacing(6, 0, 10, 0),
         flexGrow: 1,
     },
     profileContainer: {
@@ -13,6 +17,7 @@ const useStyles = makeStyles(theme => ({
         height: '30vw',
         maxWidth: '30vw',
         maxHeight: '30vw',
+        marginBottom: theme.spacing(3),
     },
     profileImg: {
         width: '100%',
@@ -32,15 +37,15 @@ function About() {
 
     return (
         <Fade in={loaded} timeout={500}>
-            <Container maxWidth="md" className={classes.about}>
-                <Grid container justify="center" alignItems="center" direction="column" spacing={2}>
+            <Container maxWidth="md" className={classes.aboutContainer}>
+                <Grid container justify="center" alignItems="center" direction="column" className={classes.about}>
                     <Grid item className={classes.profileContainer}>
                         <Fade in={imgLoaded} timeout={1000}>
                             <img src={Profile} onLoad={() => setImgLoaded(true)} className={classes.profileImg} alt="Profile"/>
                         </Fade>
                     </Grid>
                     <Grid item>
-                        <Box fontSize={16} color="primary.main" fontWeight="fontWeightLight">
+                        <Box fontSize={16} color="primary.main" fontWeight="fontWeightLight" mb={3}>
                             Hi, I'm Taylor! I'm a Washington-based software engineer working for a tech company located in Boston. I have full-stack experience designing and building
                             Java and JavaScript -based web applications and websites. During off-hours I enjoy deepening my knowledge of
                             web development by working on personal projects like this website!
