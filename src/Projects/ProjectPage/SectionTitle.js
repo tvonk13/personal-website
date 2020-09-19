@@ -7,7 +7,7 @@ export default function SectionTitle({sectionTitle, color, mb, mt}) {
     return (
         <Box mb={mb} mt={mt}>
             <Box color={color ? color : "primary.main"} fontSize={24} fontWeight="fontWeightBold" mb={1}>{sectionTitle}</Box>
-            <Box height={2} borderRadius={10} style={{backgroundImage: underlineColor}}/>
+            <Box height="1px" borderRadius={1} style={{backgroundImage: underlineColor}}/>
         </Box>
     )
 }
