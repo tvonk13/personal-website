@@ -3,7 +3,7 @@ import { makeStyles, Container } from "@material-ui/core";
 import Treeline from './assets/treeline-short.svg';
 import SocialIcons from './SocialIcons/SocialIcons'
 
-const useStyles = makeStyles(themeObject => ({
+const useStyles = makeStyles(theme => ({
     footer: {
         backgroundImage: `url(${Treeline})`,
         backgroundPosition: 'bottom',
@@ -16,7 +16,7 @@ const useStyles = makeStyles(themeObject => ({
         justifyContent: 'center',
     },
     footerContent: {
-        paddingTop: '3%'
+        paddingTop: theme.spacing(5)
     }
 }));
 

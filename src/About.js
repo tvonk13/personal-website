@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {makeStyles, Container, Grid, Fade, Box} from "@material-ui/core";
+import { makeStyles, Container, Grid, Fade, Box } from "@material-ui/core";
 import Profile from './assets/profile-full.svg';
 
 const useStyles = makeStyles(theme => ({
@@ -13,10 +13,7 @@ const useStyles = makeStyles(theme => ({
         flexGrow: 1,
     },
     profileContainer: {
-        width: '30vw',
-        height: '30vw',
-        maxWidth: '30vw',
-        maxHeight: '30vw',
+        width: '50%',
         marginBottom: theme.spacing(3),
     },
     profileImg: {

@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
         margin: theme.spacing(4, 0, 10, 0),
         flexGrow: 1,
     },
-    projectCardTop: {
+    projectCard: {
         [theme.breakpoints.down('xs')]: {
             marginBottom: theme.spacing(4),
         },
@@ -29,18 +29,18 @@ export default function Projects() {
             <Container maxWidth="md" className={classes.projectsContainer}>
                     <Grid container direction="column" className={classes.projects}>
                         <Grid item container justify="space-evenly">
-                            <Grid item className={classes.projectCardTop}>
+                            <Grid item className={classes.projectCard}>
                                 <ProjectCard title="Personal Website" img={PersonalWebsiteCard} tags={["UX", "Front End Dev"]} link="personal-website"/>
                             </Grid>
-                            <Grid item>
+                            <Grid item className={classes.projectCard}>
                                 <ProjectCard title="Art Website" img={ArtWebsiteCard} tags={["UX", "Front End Dev"]} link="art-website"/>
                             </Grid>
                         </Grid>
                         <Grid item container justify="space-evenly">
-                            <Grid item className={classes.projectCardTop}>
+                            <Grid item className={classes.projectCard}>
                                 <ProjectCard title="Puzzle Stats" img={PuzzleStatsCard} tags={["UX", "Front End Dev", "Back End Dev"]} link="puzzle-stats"/>
                             </Grid>
-                            <Grid item>
+                            <Grid item className={classes.projectCard}>
                                 <ProjectCard title="Zumolyzer" img={ZumolyzerCard} tags={["UX"]} link="zumolyzer"/>
                             </Grid>
                         </Grid>

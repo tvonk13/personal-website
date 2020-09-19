@@ -35,7 +35,7 @@ function Resume() {
       <Fade in={loaded} timeout={500}>
           <Container maxWidth="md" className={classes.resumeContainer}>
 
-          <Grid container justify="flex-start" direction="column" className={classes.resume}>
+          <Grid container direction="column" className={classes.resume}>
               {/* HEADER */}
               <Grid item className={classes.resumeItem}>
                   <ResumeHeader />
