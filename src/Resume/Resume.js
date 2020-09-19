@@ -10,6 +10,7 @@ const useStyles = makeStyles(theme => ({
         [theme.breakpoints.down('xs')]: {
           marginTop: theme.spacing(5),
         },
+        minHeight: `calc(100vh - ${theme.spacing(28)}px)`,
     },
     resume: {
         margin: theme.spacing(6, 0, 10, 0),

@@ -22,6 +22,7 @@ const useStyles = makeStyles(theme => ({
             justifyContent: 'space-evenly',
             marginBottom: theme.spacing(2),
         },
+        flexWrap: 'nowrap',
     },
     tab: {
         fontSize: '18px',
@@ -34,7 +35,11 @@ const useStyles = makeStyles(theme => ({
         },
         boxSizing: 'border-box',
         padding: theme.spacing(0, 2),
-        justifyContent: 'center'
+        margin: theme.spacing(0, 4),
+        justifyContent: 'center',
+        [theme.breakpoints.down('xs')] : {
+            margin: theme.spacing(0, 2),
+        }
     },
     tabHome: {
         color: theme.palette.primary.main,
@@ -87,11 +92,11 @@ function Nav() {
         <Fragment>
             <AppBar position="absolute" color={pathname === "/" ? "transparent" : "primary"} elevation={0} >
                 <Toolbar>
-                    <Grid container alignItems="center" justify="space-between" direction="row" >
-                        <Grid item container xs={12} sm={9} className={classes.titleGridItem} >
+                    <Grid container alignItems="center" direction="row" >
+                        <Grid item container xs={12} sm={3} className={classes.titleGridItem} >
                             <Typography className={classes.title} variant="h5" color="primary" component={Link} to="/" >TAYLOR VONK</Typography>
                         </Grid>
-                        <Grid item container xs={12} sm={3} justify="space-between" className={classes.tabsGridItem}>
+                        <Grid item container xs={12} sm={9} justify="flex-end" className={classes.tabsGridItem}>
                             <Box
                                 display="flex"
                                 ref={anchorRef}

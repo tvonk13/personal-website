@@ -11,12 +11,14 @@ const useStyles = makeStyles(theme => ({
         [theme.breakpoints.down('xs')]: {
             marginTop: theme.spacing(5),
         },
+        minHeight: `calc(100vh - ${theme.spacing(28)}px)`,
     },
     projects: {
         margin: theme.spacing(4, 0, 10, 0),
         flexGrow: 1,
     },
     projectCard: {
+        marginBottom: theme.spacing(6),
         [theme.breakpoints.down('xs')]: {
             marginBottom: theme.spacing(4),
         },

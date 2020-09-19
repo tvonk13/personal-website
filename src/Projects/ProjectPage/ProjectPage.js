@@ -5,6 +5,7 @@ const useStyles = makeStyles(theme => ({
     projectPage: {
         margin: theme.spacing(8, 0, 10, 0),
         flexGrow: 1,
+        minHeight: `calc(100vh - ${theme.spacing(28)}px)`,
     },
 }));
 

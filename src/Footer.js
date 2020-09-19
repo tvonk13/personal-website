@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles, Container } from "@material-ui/core";
-import Treeline from './assets/treeline-short.svg';
+import Treeline from './assets/treeline-short.png';
 import SocialIcons from './SocialIcons/SocialIcons'
 
 const useStyles = makeStyles(theme => ({
@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
         backgroundRepeat: 'repeat-x',
         backgroundSize: 'contain',
         color: 'white',
-        height: '150px',
+        height: theme.spacing(20),
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',

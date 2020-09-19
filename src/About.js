@@ -7,14 +7,20 @@ const useStyles = makeStyles(theme => ({
         [theme.breakpoints.down('xs')]: {
             marginTop: theme.spacing(4),
         },
+        minHeight: `calc(100vh - ${theme.spacing(28)}px)`,
     },
     about: {
         margin: theme.spacing(6, 0, 10, 0),
         flexGrow: 1,
     },
     profileContainer: {
-        width: '50%',
+        width: '25vw',
+        height: '25vw',
         marginBottom: theme.spacing(3),
+        [theme.breakpoints.down('xs')] : {
+            width: '50vw',
+            height: '50vw',
+        }
     },
     profileImg: {
         width: '100%',

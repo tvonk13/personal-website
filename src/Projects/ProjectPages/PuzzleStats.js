@@ -35,12 +35,15 @@ export default function PuzzleStats() {
                 <SubSection subSectionTitle="Unofficial API">
                     <Paragraph
                         text="When I first started on this project I discovered that, despite many other APIs, the NY Times did not have one for its crossword puzzle application. After searching online, the only option I found was an unknown endpoint used by another developer on github. This endpoint seemed to work for the most part and allowed you to pull your crossword puzzle data from the NY Times. With this, I created an unofficial API using AWS Lambda and API Gateway."
+                        mb={2}
                     />
                     <Paragraph
                         text="One challenge with this was that there was no way to subscribe to automatically receive updates from the NY Times data. After considering a few options, I decided to give the user the responsibility of syncing their data to keep it up to date. This was not ideal from a usability standpoint but was significantly easier from a development standpoint."
+                        mb={2}
                     />
                     <Paragraph
                         text="Another challenge with this was that the data were occasionally not accurate and were not comprehensive enough to be able to implement some of the features that I wanted. This issue, along with the other difficulties, ultimately led to the decision to pare back the project. Through troubleshooting a lot of the problems and design considerations with the back end, I realized that I did not enjoy that aspect of the project as much and preferred working on the front end designs. This ended up being an appropriate decision because the end-goal of this project was not to build a full-fledged real-world product but rather to work on a personal project that I enjoyed. And regardless of the final outcome, I learned an immense amount about back end development."
+                        mb={2}
                     />
                 </SubSection>
             </Section>
