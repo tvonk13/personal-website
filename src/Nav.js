@@ -5,13 +5,24 @@ import clsx from "clsx";
 
 const useStyles = makeStyles(theme => ({
     titleGridItem: {
-        paddingTop: 10
+        paddingTop: 10,
+        [theme.breakpoints.down('xs')]: {
+            justifyContent: 'center',
+            marginBottom: theme.spacing(1)
+        },
     },
     title: {
         textDecoration: 'none',
         color: 'inherit',
         margin: theme.spacing(1),
         fontFamily: 'Neucha',
+    },
+    tabsGridItem: {
+        [theme.breakpoints.down('xs')]: {
+            justifyContent: 'space-evenly',
+            marginBottom: theme.spacing(2),
+        },
+        flexWrap: 'nowrap',
     },
     tab: {
         fontSize: '18px',
@@ -23,8 +34,12 @@ const useStyles = makeStyles(theme => ({
             borderBottom: '1px solid white'
         },
         boxSizing: 'border-box',
-        width: theme.spacing(10),
-        justifyContent: 'center'
+        padding: theme.spacing(0, 2),
+        margin: theme.spacing(0, 4),
+        justifyContent: 'center',
+        [theme.breakpoints.down('xs')] : {
+            margin: theme.spacing(0, 2),
+        }
     },
     tabHome: {
         color: theme.palette.primary.main,
@@ -77,11 +92,11 @@ function Nav() {
         <Fragment>
             <AppBar position="absolute" color={pathname === "/" ? "transparent" : "primary"} elevation={0} >
                 <Toolbar>
-                    <Grid container alignItems="center" justify="space-between" direction="row" >
-                        <Grid item className={classes.titleGridItem} >
+                    <Grid container alignItems="center" direction="row" >
+                        <Grid item container xs={12} sm={3} className={classes.titleGridItem} >
                             <Typography className={classes.title} variant="h5" color="primary" component={Link} to="/" >TAYLOR VONK</Typography>
                         </Grid>
-                        <Grid item container style={{width: "25%"}} justify="space-between">
+                        <Grid item container xs={12} sm={9} justify="flex-end" className={classes.tabsGridItem}>
                             <Box
                                 display="flex"
                                 ref={anchorRef}

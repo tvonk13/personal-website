@@ -1,8 +1,12 @@
 import React from "react";
-import { makeStyles, Grid, Box } from "@material-ui/core";
+import { makeStyles, Grid, Box } from '@material-ui/core';
 import LocationOnRoundedIcon from '@material-ui/icons/LocationOnRounded';
 import ProfileSmall from '../assets/profile-small.svg';
-import SocialIcons from '../SocialIcons/SocialIcons.js'
+import LinkedIn from '../SocialIcons/LinkedIn';
+import GitHub from '../SocialIcons/GitHub';
+import Email from '../SocialIcons/Email';
+import Download from '../SocialIcons/Download';
+import ResumePdf from '../assets/Vonk-Resume.pdf';
 
 const useStyles = makeStyles(themeObject => ({
     name: {
@@ -14,6 +18,10 @@ const useStyles = makeStyles(themeObject => ({
     },
     location: {
       display: 'inline'
+    },
+    icon: {
+        width: '25px',
+        height: '25px',
     },
     blurb: {
       marginTop: 10
@@ -43,8 +51,21 @@ function ResumeHeader() {
         </Grid>
 
         {/* SOCIAL */}
-        <Grid item>
-          <SocialIcons color="dark"/>
+        <Grid item container>
+            <Grid container justify="center" spacing={1}>
+                <Grid item>
+                    <LinkedIn color="dark" />
+                </Grid>
+                <Grid item>
+                    <GitHub color="dark" />
+                </Grid>
+                <Grid item>
+                    <Email color="dark" />
+                </Grid>
+                <Grid item>
+                    <Download link={ResumePdf} filename="Vonk Resume"/>
+                </Grid>
+            </Grid>
         </Grid>
 
         {/* BLURB */}

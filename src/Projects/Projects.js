@@ -7,36 +7,47 @@ import PuzzleStatsCard from '../assets/projects/puzzle-stats-card.png';
 import ZumolyzerCard from '../assets/projects/zumolyzer-card.png';
 
 const useStyles = makeStyles(theme => ({
+    projectsContainer: {
+        [theme.breakpoints.down('xs')]: {
+            marginTop: theme.spacing(5),
+        },
+        minHeight: `calc(100vh - ${theme.spacing(28)}px)`,
+    },
     projects: {
-        paddingTop: theme.spacing(4),
-        marginBottom: theme.spacing(6),
+        margin: theme.spacing(4, 0, 10, 0),
         flexGrow: 1,
     },
+    projectCard: {
+        marginBottom: theme.spacing(6),
+        [theme.breakpoints.down('xs')]: {
+            marginBottom: theme.spacing(4),
+        },
+    }
 }));
 export default function Projects() {
     const classes = useStyles();
     return (
-        <Container maxWidth="md" className={classes.projects}>
-            <Fade in={true} timeout={500}>
-                <Grid container direction="column" spacing={5}>
-                    <Grid item container justify="space-evenly">
-                        <Grid item>
-                            <ProjectCard title="Personal Website" img={PersonalWebsiteCard} tags={["UX", "Front End Dev"]} link="personal-website"/>
+        <Fade in={true} timeout={500}>
+            <Container maxWidth="md" className={classes.projectsContainer}>
+                    <Grid container direction="column" className={classes.projects}>
+                        <Grid item container justify="space-evenly">
+                            <Grid item className={classes.projectCard}>
+                                <ProjectCard title="Personal Website" img={PersonalWebsiteCard} tags={["UX", "Front End Dev"]} link="personal-website"/>
+                            </Grid>
+                            <Grid item className={classes.projectCard}>
+                                <ProjectCard title="Art Website" img={ArtWebsiteCard} tags={["UX", "Front End Dev"]} link="art-website"/>
+                            </Grid>
                         </Grid>
-                        <Grid item>
-                            <ProjectCard title="Art Website" img={ArtWebsiteCard} tags={["UX", "Front End Dev"]} link="art-website"/>
+                        <Grid item container justify="space-evenly">
+                            <Grid item className={classes.projectCard}>
+                                <ProjectCard title="Puzzle Stats" img={PuzzleStatsCard} tags={["UX", "Front End Dev", "Back End Dev"]} link="puzzle-stats"/>
+                            </Grid>
+                            <Grid item className={classes.projectCard}>
+                                <ProjectCard title="Zumolyzer" img={ZumolyzerCard} tags={["UX"]} link="zumolyzer"/>
+                            </Grid>
                         </Grid>
                     </Grid>
-                    <Grid item container justify="space-evenly">
-                        <Grid item>
-                            <ProjectCard title="Puzzle Stats" img={PuzzleStatsCard} tags={["UX", "Front End Dev", "Back End Dev"]} link="puzzle-stats"/>
-                        </Grid>
-                        <Grid item>
-                            <ProjectCard title="Zumolyzer" img={ZumolyzerCard} tags={["UX"]} link="zumolyzer"/>
-                        </Grid>
-                    </Grid>
-                </Grid>
-            </Fade>
-        </Container>
-        )
+            </Container>
+        </Fade>
+    )
 }

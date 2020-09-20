@@ -1,22 +1,24 @@
 import React from "react";
-import { makeStyles, Container } from "@material-ui/core";
-import Treeline from './assets/treeline-short.svg';
-import SocialIcons from './SocialIcons/SocialIcons'
+import {makeStyles, Container, Grid} from '@material-ui/core';
+import Treeline from './assets/treeline-short.png';
+import LinkedIn from './SocialIcons/LinkedIn';
+import GitHub from './SocialIcons/GitHub';
+import Email from './SocialIcons/Email';
 
-const useStyles = makeStyles(themeObject => ({
+const useStyles = makeStyles(theme => ({
     footer: {
         backgroundImage: `url(${Treeline})`,
         backgroundPosition: 'bottom',
         backgroundRepeat: 'repeat-x',
         backgroundSize: 'contain',
         color: 'white',
-        height: '150px',
+        height: theme.spacing(20),
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
     },
     footerContent: {
-        paddingTop: '3%'
+        paddingTop: theme.spacing(5)
     }
 }));
 
@@ -26,7 +28,17 @@ function Footer() {
     return(
         <div className={styles.footer}>
             <Container className={styles.footerContent}>
-                <SocialIcons color="light" />
+                <Grid container justify="center" spacing={2}>
+                    <Grid item>
+                        <LinkedIn color="light" />
+                    </Grid>
+                    <Grid item>
+                        <GitHub color="light" />
+                    </Grid>
+                    <Grid item>
+                        <Email color="light" />
+                    </Grid>
+                </Grid>
             </Container>
         </div>
     );

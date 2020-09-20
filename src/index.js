@@ -13,7 +13,7 @@ const theme = createMuiTheme({
     background: "#BFA6BC"
   },
   typography: {
-    fontFamily: 'Open Sans'
+      fontFamily: 'Open Sans',
   }
 });
 
