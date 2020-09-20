@@ -19,7 +19,7 @@ export default function ProjectCard({title, tags, img, link}) {
     return (
         <Fade in={true} timeout={1000}>
             <Grid container direction="column" alignItems="center" style={{marginTop: "16px"}}>
-                <Box display="flex" fontFamily="Neucha" fontSize={24} color="primary.main">{title}</Box>
+                <Box display="flex" fontFamily="Neucha" fontSize={30} color="primary.main">{title}</Box>
                 <Grid item container justify="center">
                     {
                         tags &&
