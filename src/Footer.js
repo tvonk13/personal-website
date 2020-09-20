@@ -1,11 +1,9 @@
 import React from "react";
 import {makeStyles, Container, Grid} from '@material-ui/core';
 import Treeline from './assets/treeline-short.png';
-import SocialIcons from './SocialIcons/SocialIcons'
 import LinkedIn from './SocialIcons/LinkedIn';
 import GitHub from './SocialIcons/GitHub';
 import Email from './SocialIcons/Email';
-import Download from './SocialIcons/Download';
 
 const useStyles = makeStyles(theme => ({
     footer: {

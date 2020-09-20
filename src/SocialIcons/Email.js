@@ -15,7 +15,7 @@ function Email({color, email}) {
     const styles = useStyles();
 
     return (
-        <a href="mailto:taylor.c.v@gmail.com" target="_blank">
+        <a href="mailto:taylor.c.v@gmail.com" target="_blank" rel="noopener noreferrer">
             <img src={(color === "light" || color == null ) ? EmailLight : EmailDark} className={styles.icon} alt="Email"/>
         </a>
     );

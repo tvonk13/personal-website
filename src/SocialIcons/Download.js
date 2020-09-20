@@ -10,14 +10,15 @@ const useStyles = makeStyles(themeObject => ({
       },
 }));
 
-export default function Download({color}) {
+export default function Download({link, filename}) {
     const classes = useStyles();
 
     return (
         <a
-            href="../assets/Vonk-Resume.pdf"
+            href={link}
             target="_blank"
-            download
+            download={filename}
+            rel="noopener noreferrer"
         >
             <img src={DownloadIcon} className={classes.icon} alt="Download"/>
         </a>

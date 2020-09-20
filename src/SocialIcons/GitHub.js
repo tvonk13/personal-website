@@ -15,7 +15,7 @@ function GitHub({color, url}) {
     const styles = useStyles();
 
     return (
-        <a href={url != null ? url : "https://github.com/tvonk13"} target="_blank">
+        <a href={url != null ? url : "https://github.com/tvonk13"} target="_blank" rel="noopener noreferrer">
             <img src={(color === "light" || color == null ) ? GitHubLight : GitHubDark} className={styles.icon} alt="GitHub" />
         </a>
     );

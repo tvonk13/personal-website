@@ -1,11 +1,12 @@
 import React from "react";
-import {makeStyles, Grid, Box, IconButton} from '@material-ui/core';
+import { makeStyles, Grid, Box } from '@material-ui/core';
 import LocationOnRoundedIcon from '@material-ui/icons/LocationOnRounded';
 import ProfileSmall from '../assets/profile-small.svg';
 import LinkedIn from '../SocialIcons/LinkedIn';
 import GitHub from '../SocialIcons/GitHub';
 import Email from '../SocialIcons/Email';
-// import Download from '../SocialIcons/Download';
+import Download from '../SocialIcons/Download';
+import ResumePdf from '../assets/Vonk-Resume.pdf';
 
 const useStyles = makeStyles(themeObject => ({
     name: {
@@ -61,9 +62,9 @@ function ResumeHeader() {
                 <Grid item>
                     <Email color="dark" />
                 </Grid>
-                {/*<Grid item>
-                    <Download />
-                </Grid>*/}
+                <Grid item>
+                    <Download link={ResumePdf} filename="Vonk Resume"/>
+                </Grid>
             </Grid>
         </Grid>
 

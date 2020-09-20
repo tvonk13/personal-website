@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { makeStyles, Container, Grid, List, ListItem, Fade, Box, IconButton, Button } from "@material-ui/core";
+import { makeStyles, Container, Grid, List, ListItem, Fade, Box } from "@material-ui/core";
 import Section from './Section'
 import JobContent from "./JobContent";
 import KnowledgeItem from "./KnowledgeItem";
 import ResumeHeader from "./ResumeHeader";
-import Download from '../assets/download.svg';
-import DownloadIcon from '@material-ui/icons/GetAppRounded';
 
 const useStyles = makeStyles(theme => ({
     resumeContainer: {
