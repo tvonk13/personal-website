@@ -3,7 +3,12 @@ import { makeStyles, Grid, Box } from "@material-ui/core";
 import TreeOutline from '../assets/tree-icon-outline.svg'
 import TreeFilled from '../assets/tree-icon-filled.svg'
 
-const useStyles = makeStyles(themeObject => ({
+const useStyles = makeStyles(theme => ({
+    knowledgeItemRow: {
+        flexDirection: 'row',
+        flexWrap: 'nowrap',
+        marginBottom: 16,
+    },
     description: {
         width: 200,
     },
@@ -26,11 +31,11 @@ function KnowledgeItem({name, level}){
     }
     
     return(
-        <Grid container direction="row" justify="flex-start" wrap="nowrap" >
-            <Grid item className={classes.description}>
+        <Grid container className={classes.knowledgeItemRow}>
+            <Grid item xs={6} md={5}>
                 <Box fontSize={16} color="primary.main" fontWeight="fontWeightLight">{name}</Box>
             </Grid>
-            <Grid item>
+            <Grid item xs={6} md={7}>
                 {filled}
                 {unfilled}
             </Grid>

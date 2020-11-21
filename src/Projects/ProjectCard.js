@@ -11,7 +11,11 @@ const useStyles = makeStyles(theme => ({
         "&:hover": {
             opacity: 0.6
         },
-    }
+        [theme.breakpoints.down('sm')] :{
+            width: '100%',
+            height: `calc(100vw * 0.53)`,
+        }
+    },
 }));
 
 export default function ProjectCard({title, tags, img, link}) {

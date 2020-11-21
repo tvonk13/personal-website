@@ -19,8 +19,17 @@ const useStyles = makeStyles(theme => ({
     resumeItem: {
         marginBottom: theme.spacing(4),
     },
+    skillRow: {
+        flexDirection: 'row',
+        justifyItems: 'flex-start',
+        flexWrap: 'nowrap',
+        [theme.breakpoints.down('xs')]: {
+            flexDirection: 'column',
+        }
+    },
     skillColumn: {
-        flexGrow: 1
+        paddingLeft: theme.spacing(2),
+        flexDirection: 'column'
     },
 }));
 
@@ -55,6 +64,7 @@ function Resume() {
                     </Section>
                   </Grid>
 
+                  {/* EXPERIENCE */}
                   <Grid item className={classes.resumeItem}>
                       <Section name="Experience">
                           <JobContent
@@ -90,45 +100,39 @@ function Resume() {
                     </Section>
                   </Grid>
 
-                  <Grid item className={classes.resumeItem}>
-                      <Section name="Languages/Frameworks*">
-                          <Grid container direction="row" justify="flex-start">
-                              <Grid item className={classes.skillColumn}>
-                                  <List>
-                                      <ListItem> <KnowledgeItem name="JavaScript" level={5} /> </ListItem>
-                                      <ListItem> <KnowledgeItem name="React" level={4} /> </ListItem>
-                                      <ListItem> <KnowledgeItem name="Java" level={5} /> </ListItem>
-                                      <ListItem> <KnowledgeItem name="HTML" level={4} /> </ListItem>
-                                  </List>
+                  {/* LANGUAGES/FRAMEWORKS */}
+                  <Grid item className={classes.resumeItem} >
+                      <Section name="Languages/Frameworks*" >
+                          <Grid container className={classes.skillRow} >
+                              <Grid item container className={classes.skillColumn} >
+                                  <KnowledgeItem name="JavaScript" level={5} />
+                                  <KnowledgeItem name="React" level={4} />
+                                  <KnowledgeItem name="Java" level={5} />
+                                  <KnowledgeItem name="HTML" level={4} />
                               </Grid>
-                              <Grid item className={classes.skillColumn}>
-                                  <List>
-                                      <ListItem> <KnowledgeItem name="CSS" level={4} /> </ListItem>
-                                      <ListItem> <KnowledgeItem name="Struts" level={3} /> </ListItem>
-                                      <ListItem> <KnowledgeItem name="JSP" level={3} /> </ListItem>
-                                      <ListItem> <KnowledgeItem name="SQL" level={2} /> </ListItem>
-                                  </List>
+                              <Grid item container className={classes.skillColumn} >
+                                  <KnowledgeItem name="CSS" level={4} />
+                                  <KnowledgeItem name="Struts" level={3} />
+                                  <KnowledgeItem name="JSP" level={3} />
+                                  <KnowledgeItem name="SQL" level={2} />
                               </Grid>
                           </Grid>
                       </Section>
                   </Grid>
 
-                  <Grid item className={classes.resumeItem}>
+                  {/* SOFTWARE/TOOLS */}
+                  <Grid item className={classes.resumeItem} >
                       <Section name="Software/Tools*">
-                          <Grid container direction="row" justify="space-between">
-                              <Grid item className={classes.skillColumn}>
-                                  <List>
-                                      <ListItem> <KnowledgeItem name="IntelliJ" level={4} /> </ListItem>
-                                      <ListItem> <KnowledgeItem name="Git" level={3} /> </ListItem>
-                                      <ListItem> <KnowledgeItem name="MySQL" level={2} /> </ListItem>
-                                  </List>
+                          <Grid container className={classes.skillRow} >
+                              <Grid item container className={classes.skillColumn} >
+                                  <KnowledgeItem name="IntelliJ" level={4} />
+                                  <KnowledgeItem name="Git" level={3} />
+                                  <KnowledgeItem name="MySQL" level={2} />
                               </Grid>
-                              <Grid item className={classes.skillColumn}>
-                                  <List>
-                                      <ListItem> <KnowledgeItem name="Figma" level={3} /> </ListItem>
-                                      <ListItem> <KnowledgeItem name="Affinity Designer" level={3} /> </ListItem>
-                                      <ListItem> <KnowledgeItem name="AWS" level={2} /> </ListItem>
-                                  </List>
+                              <Grid item container className={classes.skillColumn} >
+                                  <KnowledgeItem name="Figma" level={3} />
+                                  <KnowledgeItem name="Affinity Designer" level={3} />
+                                  <KnowledgeItem name="AWS" level={2} />
                               </Grid>
                           </Grid>
                     </Section>
@@ -138,6 +142,7 @@ function Resume() {
                       <Box fontSize={14} color="primary.main" fontWeight="fontWeightLight">*Ratings are relative to my own skills</Box>
                   </Grid>
 
+                  {/* INTERESTS */}
                   <Grid item className={classes.resumeItem}>
                       <Section name="Interests">
                           <List>

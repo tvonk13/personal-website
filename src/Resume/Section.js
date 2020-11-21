@@ -1,11 +1,24 @@
 import React from 'react';
-import { Grid, Divider, Box} from "@material-ui/core";
+import { makeStyles, Grid, Divider, Box } from '@material-ui/core';
+
+const useStyles = makeStyles(theme => ({
+   name: {
+       fontSize: '34px',
+       color: theme.palette.primary.main,
+       fontFamily: 'Neucha',
+       [theme.breakpoints.down('xs')]: {
+           fontSize: '30px',
+       }
+   }
+}));
 
 function Section({name, children}){
+    const classes = useStyles();
+
     return(
-        <Grid container direction="column" spacing={2}>
+        <Grid container direction='column' wrap='nowrap' spacing={2}>
             <Grid item>
-                <Box fontSize={34} color="primary.main" fontFamily="Neucha">{name}</Box>
+                <Box className={classes.name}>{name}</Box>
                 <Divider />
             </Grid>
             <Grid item>
