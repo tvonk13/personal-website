@@ -58,7 +58,7 @@ function About() {
                         <Box fontSize={16} color="primary.main" fontWeight="fontWeightLight">
                             When I'm not programming, I am an avid climber who loves being in the sun and goofing around on the rocks. A few years ago I was also introduced to the 
                             exciting world of triathlons and have been enjoying training in running, biking, and swimming! When flexing my creative muscles, I like exploring 
-                            different mediums, like ink pens and acrylic and oil paint to create abstract artwork inspired by nature. Recently, I have been pursing digital art 
+                            different mediums, like ink pens and acrylic and oil paint to create abstract artwork inspired by nature. Recently, I have been pursuing digital art
                             as another medium and as a way to expand my repertoire of web development skills.
                         </Box>
                     </Grid>
