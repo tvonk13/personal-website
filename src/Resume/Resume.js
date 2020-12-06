@@ -23,13 +23,14 @@ const useStyles = makeStyles(theme => ({
         flexDirection: 'row',
         justifyItems: 'flex-start',
         flexWrap: 'nowrap',
+        margin: theme.spacing(2, 0),
         [theme.breakpoints.down('xs')]: {
             flexDirection: 'column',
         }
     },
     skillColumn: {
         paddingLeft: theme.spacing(2),
-        flexDirection: 'column'
+        //flexDirection: 'column'
     },
 }));
 
@@ -135,11 +136,10 @@ function Resume() {
                                   <KnowledgeItem name="AWS" level={2} />
                               </Grid>
                           </Grid>
-                    </Section>
-                  </Grid>
-
-                  <Grid item className={classes.resumeItem}>
-                      <Box fontSize={14} color="primary.main" fontWeight="fontWeightLight">*Ratings are relative to my own skills</Box>
+                      </Section>
+                      <Grid item>
+                          <Box fontSize={14} mb={4} color="primary.main" fontWeight="fontWeightLight">*Ratings are relative to my own skills</Box>
+                      </Grid>
                   </Grid>
 
                   {/* INTERESTS */}
