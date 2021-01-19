@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { makeStyles, Container, Grid, Fade, Box } from "@material-ui/core";
-import Profile from './assets/profile-full.svg';
+import Client from './prismic-configuration';
+import Prismic from '@prismicio/client';
+import RichText from 'prismic-reactjs/src/Component';
 
 const useStyles = makeStyles(theme => ({
     aboutContainer: {
@@ -28,44 +30,45 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-function About() {
+export default function About() {
     const classes = useStyles();
 
     const [loaded, setLoaded] = useState(false);
     const [imgLoaded, setImgLoaded] = useState(false);
+    const [about, setAbout] = useState(null);
 
     useEffect(() => {
-        setLoaded(true);
+        Client.query(Prismic.Predicates.at('document.type', 'about'))
+            .then(response => {
+                setAbout(response.results[0].data)
+                console.log(response.results[0].data)
+                setLoaded(true);
+            });
     }, []);
 
     return (
-        <Fade in={loaded} timeout={500}>
-            <Container maxWidth="md" className={classes.aboutContainer}>
-                <Grid container justify="center" alignItems="center" direction="column" className={classes.about}>
-                    <Grid item className={classes.profileContainer}>
-                        <Fade in={imgLoaded} timeout={1000}>
-                            <img src={Profile} onLoad={() => setImgLoaded(true)} className={classes.profileImg} alt="Profile"/>
-                        </Fade>
-                    </Grid>
-                    <Grid item>
-                        <Box fontSize={16} color="primary.main" fontWeight="fontWeightLight" mb={3}>
-                            Hi, I'm Taylor! I'm a Washington-based software engineer working for a tech company located in Boston. I have full-stack experience designing and building
-                            Java and JavaScript -based web applications and websites. During off-hours I enjoy deepening my knowledge of
-                            web development by working on personal projects like this website!
-                        </Box>
-                    </Grid>
-                    <Grid item>
-                        <Box fontSize={16} color="primary.main" fontWeight="fontWeightLight">
-                            When I'm not programming, I am an avid climber who loves being in the sun and goofing around on the rocks. A few years ago I was also introduced to the 
-                            exciting world of triathlons and have been enjoying training in running, biking, and swimming! When flexing my creative muscles, I like exploring 
-                            different mediums, like ink pens and acrylic and oil paint to create abstract artwork inspired by nature. Recently, I have been pursuing digital art
-                            as another medium and as a way to expand my repertoire of web development skills.
-                        </Box>
-                    </Grid>
-                </Grid>
-            </Container>
-        </Fade>
+        <>
+            {
+                about ?
+                <Fade in={loaded} timeout={500}>
+                    <Container maxWidth="md" className={classes.aboutContainer}>
+                        <Grid container justify="center" alignItems="center" direction="column" className={classes.about}>
+                            <Grid item className={classes.profileContainer}>
+                                <Fade in={imgLoaded} timeout={1000}>
+                                    <img src={about.profile.url} onLoad={() => setImgLoaded(true)} className={classes.profileImg} alt="Profile"/>
+                                </Fade>
+                            </Grid>
+                            <Grid item >
+                                <Box fontSize={16} color="primary.main" fontWeight="fontWeightLight" mb={3}>
+                                    {RichText.render(about.description)}
+                                </Box>
+                            </Grid>
+                        </Grid>
+                    </Container>
+                </Fade>
+                :
+                <Box height={'100vh'} />
+            }
+        </>
     );
 }
-
-export default About;

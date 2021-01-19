@@ -1,12 +1,11 @@
 import React from "react";
 import { makeStyles, Grid, Box } from '@material-ui/core';
 import LocationOnRoundedIcon from '@material-ui/icons/LocationOnRounded';
-import ProfileSmall from '../assets/profile-small.svg';
 import LinkedIn from '../SocialIcons/LinkedIn';
 import GitHub from '../SocialIcons/GitHub';
 import Email from '../SocialIcons/Email';
 import Download from '../SocialIcons/Download';
-import ResumePdf from '../assets/Vonk-Resume.pdf';
+import { RichText } from 'prismic-reactjs';
 
 const useStyles = makeStyles(themeObject => ({
     name: {
@@ -28,7 +27,7 @@ const useStyles = makeStyles(themeObject => ({
     }
   }));
 
-function ResumeHeader() {
+function ResumeHeader({data}) {
     const classes = useStyles();
 
     return(
@@ -36,34 +35,34 @@ function ResumeHeader() {
 
         {/* NAME */}
         <Grid item>
-            <Box fontFamily="Neucha" fontSize={48} color="primary.main">Taylor Vonk</Box>
+            <Box fontFamily="Neucha" fontSize={48} color="primary.main">{data.name}</Box>
         </Grid>
 
         {/* PROFILE */}
         <Grid item>
-          <img src={ProfileSmall} className={classes.profileSmall} alt="Profile"/>
+          <img src={data.profileImg} className={classes.profileSmall} alt="Profile"/>
         </Grid>
 
         {/* LOCATION */}
         <Grid item container justify="center">
           <LocationOnRoundedIcon fontSize="small" color="primary"/>
-          <Box fontSize={16} color="primary.main" fontWeight="fontWeightLight" ml={1}>Kirkland, WA</Box>
+          <Box fontSize={16} color="primary.main" fontWeight="fontWeightLight" ml={1}>{data.location}</Box>
         </Grid>
 
         {/* SOCIAL */}
         <Grid item container>
             <Grid container justify="center" spacing={1}>
                 <Grid item>
-                    <LinkedIn color="dark" />
+                    <LinkedIn color="dark" url={data.linkedIn}/>
                 </Grid>
                 <Grid item>
-                    <GitHub color="dark" />
+                    <GitHub color="dark" url={data.gitHub}/>
                 </Grid>
                 <Grid item>
-                    <Email color="dark" />
+                    <Email color="dark" email={data.email}/>
                 </Grid>
                 <Grid item>
-                    <Download link={ResumePdf} filename="Vonk Resume"/>
+                    <Download link={data.resumePDF.url} filename={data.resumePDF.name}/>
                 </Grid>
             </Grid>
         </Grid>
@@ -71,9 +70,7 @@ function ResumeHeader() {
         {/* BLURB */}
         <Grid item>
             <Box fontSize={16} color="primary.main" fontWeight="fontWeightLight" lineHeight={2} mt={1}>
-                Driven and creative software engineer who is a great team player and is eager to grow in the field of computer science.
-                Enjoys learning through hands-on projects and by working with fellow developers. Has experience using Java,
-                JSP, JavaScript and web frameworks to build well designed web applications.
+                {RichText.render(data.description)}
             </Box>
         </Grid>
 

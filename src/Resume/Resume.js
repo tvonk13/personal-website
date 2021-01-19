@@ -4,11 +4,13 @@ import Section from './Section'
 import JobContent from "./JobContent";
 import KnowledgeItem from "./KnowledgeItem";
 import ResumeHeader from "./ResumeHeader";
+import Prismic from '@prismicio/client';
+import Client from '../prismic-configuration';
 
 const useStyles = makeStyles(theme => ({
     resumeContainer: {
         [theme.breakpoints.down('xs')]: {
-          marginTop: theme.spacing(5),
+            marginTop: theme.spacing(5),
         },
         minHeight: `calc(100vh - ${theme.spacing(28)}px)`,
     },
@@ -22,144 +24,138 @@ const useStyles = makeStyles(theme => ({
     skillRow: {
         flexDirection: 'row',
         justifyItems: 'flex-start',
-        flexWrap: 'nowrap',
-        margin: theme.spacing(2, 0),
+        margin: theme.spacing(2, 0, 2, 2),
         [theme.breakpoints.down('xs')]: {
             flexDirection: 'column',
         }
     },
-    skillColumn: {
-        paddingLeft: theme.spacing(2),
-        //flexDirection: 'column'
-    },
 }));
 
-function Resume() {
-  const classes = useStyles();
-  const [loaded, setLoaded] = useState(false);
+export default function Resume() {
+    const classes = useStyles();
+    const [loaded, setLoaded] = useState(true);
+    const [resume, setResume] = useState(null);
+    const [headerData, setHeaderData] = useState(null);
 
-  useEffect(() => {
-    setLoaded(true);
-  }, [])
+    useEffect(() => {
+        Client.query(Prismic.Predicates.at('document.type', 'resume'))
+            .then(response => setResume(response.results[0].data));
+    }, []);
 
-  return (
-      <Fade in={loaded} timeout={500}>
-          <Container maxWidth="md" className={classes.resumeContainer}>
-              <Grid container direction="column" className={classes.resume}>
-                  {/* HEADER */}
-                  <Grid item className={classes.resumeItem}>
-                      <ResumeHeader />
-                  </Grid>
+    useEffect(() => {
+        if (resume) {
+            setHeaderData({
+                name: resume.name[0].text,
+                profileImg: resume.profile.url,
+                location: 'Kirkland, WA',
+                linkedIn: resume.linkedin.url,
+                gitHub: resume.github.url,
+                email: resume.email.url,
+                resumePDF: resume.resume,
+                description: resume.description,
+            })
+            setLoaded(true);
+        }
 
-                  {/* EDUCATION */}
-                  <Grid item className={classes.resumeItem}>
-                      <Section name="Education">
-                          <JobContent
-                              date="Jul 2018"
-                              title="Northeastern University"
-                              subtitle="Bachelors degree in Computer Science and Cognitive Psychology"
-                              bullets={[
-                                "Took classes in object oriented design, algorithms and data, computer systems, software development, web development, and artificial intelligence.",
-                                "Received honors in psychology and was on the Dean's list for 3 semesters."
-                              ]} />
-                    </Section>
-                  </Grid>
+    }, [resume])
 
-                  {/* EXPERIENCE */}
-                  <Grid item className={classes.resumeItem}>
-                      <Section name="Experience">
-                          <JobContent
-                              date="Aug 2018 - Present"
-                              title="Software Engineer"
-                              subtitle="Clinical Research IO, Boston, MA"
-                              bullets={[
-                                  "Architect and execute new features from start to finish while working closely with the UX team and product managers",
-                                  "Quickly and efficiently implement solutions for client issues through bug patches and data fixes",
-                                  "Help maintain the product by continually improving existing code, feature designs, and infrastructures"
-                              ]} />
+    return (
+        <>
+            {
+                resume && headerData ?
+                <Fade in={loaded} timeout={500}>
+                    <Container maxWidth="md" className={classes.resumeContainer}>
+                        <Grid container direction="column" className={classes.resume}>
+                            {/*HEADER*/}
+                            <Grid item className={classes.resumeItem}>
+                                <ResumeHeader data={headerData}/>
+                            </Grid>
 
-                          <JobContent
-                              date="Jul 2017 - Dec 2017"
-                              title="Software Engineering Intern"
-                              subtitle="Novartis Institute of Biomedical Research, Cambridge, MA"
-                              bullets={[
-                                  "Reduced redundancy and inefficiency in current and future tools for managing data by developing a RESTful middleware layer using JavaScript and AWS.",
-                                  "Communicated directly with end-users to come up with tailored solutions to fit their needs.",
-                                  "Continually integrated and improved on work by participating in an agile work-flow and by incorporating daily feedback from other developers."
-                              ]} />
+                            {/*EDUCATION*/}
+                            <Grid item className={classes.resumeItem}>
+                                <Section name="Education">
+                                    {
+                                        resume.body.filter(bodyItem => bodyItem['slice_label'] === 'education')
+                                            .map((educationItem, index) =>
+                                                <JobContent
+                                                    key={index}
+                                                    date={educationItem.primary.date[0].text}
+                                                    title={educationItem.primary.title[0].text}
+                                                    subtitle={educationItem.primary.subtitle[0].text}
+                                                    bullets={educationItem.primary.bullets}/>
+                                            )
+                                    }
+                                </Section>
+                            </Grid>
 
-                          <JobContent
-                              date="Mar 2017 - Jul 2018"
-                              title="Student Supervisor"
-                              subtitle="Northeastern Information Technology Services, Boston, MA"
-                              bullets={[
-                                  "Oversaw other student employees and ensure that all roles were being filled properly.",
-                                  "Helped walk-up customers with troubleshooting technical issues.",
-                                  "Ensured that technical and printing services managed by the ITS department were functioning properly."
-                              ]} />
+                            {/*EXPERIENCE*/}
+                            <Grid item className={classes.resumeItem}>
+                                <Section name="Experience">
+                                    {
+                                        resume.body.filter(bodyItem => bodyItem['slice_label'] === 'experience')
+                                            .map((experienceItem, index) =>
+                                                <JobContent
+                                                    key={index}
+                                                    date={experienceItem.primary.date[0].text}
+                                                    title={experienceItem.primary.title[0].text}
+                                                    subtitle={experienceItem.primary.subtitle[0].text}
+                                                    bullets={experienceItem.primary.bullets}/>
+                                            )
+                                    }
+                                </Section>
+                            </Grid>
 
-                    </Section>
-                  </Grid>
+                            {/*LANGUAGES/FRAMEWORKS*/}
+                            <Grid item className={classes.resumeItem}>
+                                <Section name="Languages/Frameworks*">
+                                    <Grid container className={classes.skillRow}>
+                                        {
+                                            resume.body.filter(bodyItem => bodyItem['slice_label'] === 'languages')
+                                                [0].items
+                                                .map((skillItem, index) => <KnowledgeItem key={index} name={skillItem.item[0].text} level={skillItem.rating}/>)
+                                        }
+                                    </Grid>
+                                </Section>
+                            </Grid>
 
-                  {/* LANGUAGES/FRAMEWORKS */}
-                  <Grid item className={classes.resumeItem} >
-                      <Section name="Languages/Frameworks*" >
-                          <Grid container className={classes.skillRow} >
-                              <Grid item container className={classes.skillColumn} >
-                                  <KnowledgeItem name="JavaScript" level={5} />
-                                  <KnowledgeItem name="React" level={4} />
-                                  <KnowledgeItem name="Java" level={5} />
-                                  <KnowledgeItem name="HTML" level={4} />
-                              </Grid>
-                              <Grid item container className={classes.skillColumn} >
-                                  <KnowledgeItem name="CSS" level={4} />
-                                  <KnowledgeItem name="Struts" level={3} />
-                                  <KnowledgeItem name="JSP" level={3} />
-                                  <KnowledgeItem name="SQL" level={2} />
-                              </Grid>
-                          </Grid>
-                      </Section>
-                  </Grid>
+                            {/*SOFTWARE/TOOLS*/}
+                            <Grid item className={classes.resumeItem}>
+                                <Section name="Software/Tools*">
+                                    <Grid container className={classes.skillRow}>
+                                        {
+                                            resume.body.filter(bodyItem => bodyItem['slice_label'] === 'software')
+                                                [0].items
+                                                .map((skillItem, index) => <KnowledgeItem key={index} name={skillItem.item[0].text} level={skillItem.rating}/>)
+                                        }
+                                    </Grid>
+                                </Section>
+                                <Grid item>
+                                    <Box fontSize={14} mb={4} color="primary.main" fontWeight="fontWeightLight">*Ratings are
+                                        relative to my own skills</Box>
+                                </Grid>
+                            </Grid>
 
-                  {/* SOFTWARE/TOOLS */}
-                  <Grid item className={classes.resumeItem} >
-                      <Section name="Software/Tools*">
-                          <Grid container className={classes.skillRow} >
-                              <Grid item container className={classes.skillColumn} >
-                                  <KnowledgeItem name="IntelliJ" level={4} />
-                                  <KnowledgeItem name="Git" level={3} />
-                                  <KnowledgeItem name="MySQL" level={2} />
-                              </Grid>
-                              <Grid item container className={classes.skillColumn} >
-                                  <KnowledgeItem name="Figma" level={3} />
-                                  <KnowledgeItem name="Affinity Designer" level={3} />
-                                  <KnowledgeItem name="AWS" level={2} />
-                              </Grid>
-                          </Grid>
-                      </Section>
-                      <Grid item>
-                          <Box fontSize={14} mb={4} color="primary.main" fontWeight="fontWeightLight">*Ratings are relative to my own skills</Box>
-                      </Grid>
-                  </Grid>
+                            {/*INTERESTS*/}
+                            <Grid item className={classes.resumeItem}>
+                                <Section name="Interests">
+                                    <List>
+                                        {
+                                            resume.interests.map((interest, index) =>
+                                                <ListItem key={index}>
+                                                    <Box key={index} fontSize={16} color="primary.main" fontWeight="fontWeightLight">{interest.text}</Box>
+                                                </ListItem>)
+                                        }
+                                    </List>
+                                </Section>
+                            </Grid>
 
-                  {/* INTERESTS */}
-                  <Grid item className={classes.resumeItem}>
-                      <Section name="Interests">
-                          <List>
-                              <ListItem><Box fontSize={16} color="primary.main" fontWeight="fontWeightLight">Rock climbing, hiking, and camping</Box></ListItem>
-                              <ListItem><Box fontSize={16} color="primary.main" fontWeight="fontWeightLight">Reading sci-fi/fantasy adventure books and graphic novels</Box></ListItem>
-                              <ListItem><Box fontSize={16} color="primary.main" fontWeight="fontWeightLight">Playing board and RPG games</Box></ListItem>
-                              <ListItem><Box fontSize={16} color="primary.main" fontWeight="fontWeightLight">Drawing, painting, and illustrating</Box></ListItem>
-                              <ListItem><Box fontSize={16} color="primary.main" fontWeight="fontWeightLight">Learning UX design</Box></ListItem>
-                          </List>
-                    </Section>
-                  </Grid>
+                        </Grid>
 
-                </Grid>
-
-          </Container>
-      </Fade>
-  );
+                    </Container>
+                </Fade>
+                :
+                <Box height={'100vh'}/>
+            }
+        </>
+    );
 }
-
-export default Resume;

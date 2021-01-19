@@ -12,7 +12,7 @@ function JobDescription({title, subtitle, bullets}){
             </Grid>
             <Grid item>
                 <ul>
-                    {bullets.map((bullet, index) => <li key={index} style={{marginBottom: "8px", color: "#37374A"}}><Box fontSize={16} color="primary.main" fontWeight="fontWeightLight">{bullet}</Box></li>)}
+                    {bullets.map((bullet, index) => <li key={index} style={{marginBottom: "8px", color: "#37374A"}}><Box fontSize={16} color="primary.main" fontWeight="fontWeightLight">{bullet.text}</Box></li>)}
                 </ul>
             </Grid>
         </Grid>

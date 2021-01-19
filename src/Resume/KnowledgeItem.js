@@ -6,7 +6,6 @@ import TreeFilled from '../assets/tree-icon-filled.svg'
 const useStyles = makeStyles(theme => ({
     knowledgeItemRow: {
         flexDirection: 'row',
-        flexWrap: 'nowrap',
         marginBottom: 16,
     },
     description: {
