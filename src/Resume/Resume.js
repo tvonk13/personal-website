@@ -105,33 +105,34 @@ export default function Resume() {
                                 </Section>
                             </Grid>
 
-                            {/*LANGUAGES/FRAMEWORKS*/}
-                            <Grid item className={classes.resumeItem}>
-                                <Section name="Languages/Frameworks*">
-                                    <Grid container className={classes.skillRow}>
-                                        {
-                                            resume.body.filter(bodyItem => bodyItem['slice_label'] === 'languages')
-                                                [0].items
-                                                .map((skillItem, index) => <KnowledgeItem key={index} name={skillItem.item[0].text} level={skillItem.rating}/>)
-                                        }
-                                    </Grid>
-                                </Section>
-                            </Grid>
+                            <Grid item container style={{justifyContent: 'space-between'}}>
+                                {/*LANGUAGES/FRAMEWORKS*/}
+                                <Grid item xs={12} md={6} className={classes.resumeItem}>
+                                    <Section name="Languages/Frameworks*" style={{paddingRight: '10px'}}>
+                                        <Grid container className={classes.skillRow}>
+                                            {
+                                                resume.body.filter(bodyItem => bodyItem['slice_label'] === 'languages')
+                                                    [0].items
+                                                    .map((skillItem, index) => <KnowledgeItem key={index} name={skillItem.item[0].text} level={skillItem.rating}/>)
+                                            }
+                                        </Grid>
+                                    </Section>
+                                </Grid>
 
-                            {/*SOFTWARE/TOOLS*/}
-                            <Grid item className={classes.resumeItem}>
-                                <Section name="Software/Tools*">
-                                    <Grid container className={classes.skillRow}>
-                                        {
-                                            resume.body.filter(bodyItem => bodyItem['slice_label'] === 'software')
-                                                [0].items
-                                                .map((skillItem, index) => <KnowledgeItem key={index} name={skillItem.item[0].text} level={skillItem.rating}/>)
-                                        }
-                                    </Grid>
-                                </Section>
+                                {/*SOFTWARE/TOOLS*/}
+                                <Grid item xs={12} md={6} className={classes.resumeItem}>
+                                    <Section name="Software/Tools*">
+                                        <Grid container className={classes.skillRow}>
+                                            {
+                                                resume.body.filter(bodyItem => bodyItem['slice_label'] === 'software')
+                                                    [0].items
+                                                    .map((skillItem, index) => <KnowledgeItem key={index} name={skillItem.item[0].text} level={skillItem.rating}/>)
+                                            }
+                                        </Grid>
+                                    </Section>
+                                </Grid>
                                 <Grid item>
-                                    <Box fontSize={14} mb={4} color="primary.main" fontWeight="fontWeightLight">*Ratings are
-                                        relative to my own skills</Box>
+                                    <Box fontSize={14} mb={6} color="primary.main" fontWeight="fontWeightLight">*Ratings are relative to my own skills</Box>
                                 </Grid>
                             </Grid>
 

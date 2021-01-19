@@ -8,9 +8,6 @@ const useStyles = makeStyles(theme => ({
         flexDirection: 'row',
         marginBottom: 16,
     },
-    description: {
-        width: 200,
-    },
     icon: {
         height: 20
     }
