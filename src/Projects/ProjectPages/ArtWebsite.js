@@ -20,8 +20,8 @@ export default function ArtWebsite() {
                     tags={["UX", "Front End Dev"]}
                     season="Summer"
                     year="2020"
-                    websiteText="tvonk.com"
-                    websiteUrl="https://www.tvonk.com"
+                    websiteText="acaja.taylorvonk.com"
+                    websiteUrl="https://acaja.taylorvonk.com"
                     githubLinks={["tvonk13/art-website"]}
                 />
                 <HeaderImage image={ArtWebsiteCard} altText="Art Website"/>
