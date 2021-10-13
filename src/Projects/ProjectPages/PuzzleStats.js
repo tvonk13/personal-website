@@ -19,7 +19,7 @@ export default function PuzzleStats() {
                     season="Fall"
                     year="2019"
                     websiteText="puzzlestats.taylorvonk.com"
-                    websiteUrl="https://www.puzzlestats.taylorvonk.com"
+                    websiteUrl="https://puzzlestats.taylorvonk.com"
                     githubLinks={["tvonk13/puzzle-stats-demo", "tvonk13/puzzle-hard-mode"]}
                 />
                 <HeaderImage image={PuzzleStatsCard} altText="Puzzle Stats"/>
