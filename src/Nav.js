@@ -94,7 +94,7 @@ function Nav() {
                 <Toolbar>
                     <Grid container alignItems="center" direction="row" >
                         <Grid item container xs={12} sm={3} className={classes.titleGridItem} >
-                            <Typography className={classes.title} variant="h5" color="primary" component={Link} to="/" >TAYLOR VONK</Typography>
+                            <Typography className={classes.title} variant="h5" color="primary" component={Link} to="/" >TAYLOR STIGER</Typography>
                         </Grid>
                         <Grid item container xs={12} sm={9} justify="flex-end" className={classes.tabsGridItem}>
                             <Box

@@ -18,8 +18,8 @@ export default function PuzzleStats() {
                     tags={["UX", "Front End Dev", "Back End Dev"]}
                     season="Fall"
                     year="2019"
-                    websiteText="puzzlestats.taylorvonk.com"
-                    websiteUrl="https://puzzlestats.taylorvonk.com"
+                    websiteText="puzzlestats.taylorstiger.io"
+                    websiteUrl="https://puzzlestats.taylorstiger.io"
                     githubLinks={["tvonk13/puzzle-stats-demo", "tvonk13/puzzle-hard-mode"]}
                 />
                 <HeaderImage image={PuzzleStatsCard} altText="Puzzle Stats"/>

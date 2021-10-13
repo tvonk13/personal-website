@@ -32,8 +32,8 @@ export default function PersonalWebsite() {
                     tags={["UX", "Front End Dev"]}
                     season="Spring"
                     year="2020"
-                    websiteText="taylorvonk.com"
-                    websiteUrl="https://www.taylorvonk.com"
+                    websiteText="taylorstiger.io"
+                    websiteUrl="https://www.taylorstiger.io"
                     githubLinks={["tvonk13/personal-website"]}
                 />
                 <HeaderImage image={PersonalWebsiteCard} altText="Personal Website"/>
