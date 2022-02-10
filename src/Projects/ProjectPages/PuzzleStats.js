@@ -14,7 +14,7 @@ export default function PuzzleStats() {
             <Header>
                 <HeaderPanel
                     title="Puzzle Stats"
-                    subtitle="Designed and built a website for viewing NY Times Crossword puzzle statics"
+                    subtitle="Designed and built a website for viewing NY Times Crossword puzzle statistics"
                     tags={["UX", "Front End Dev", "Back End Dev"]}
                     season="Fall"
                     year="2019"
