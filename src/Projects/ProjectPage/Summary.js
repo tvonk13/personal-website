@@ -16,12 +16,12 @@ export default function Summary({text}) {
     const classes = useStyles();
 
     return (
-        <Box bgcolor="primary.main" py={4} className={classes.overviewBox}>
+        <Box py={4} className={classes.overviewBox}>
             <Container maxWidth="md">
                 <Grid container direction="column">
-                    <SectionTitle sectionTitle="Summary" color="white" mb={2} mt={1}/>
+                    <SectionTitle sectionTitle="Summary" mb={2} mt={1}/>
                     {
-                        text.map((paragraph, index) => <Paragraph text={paragraph} key={index} mb={2} color="white"/>)
+                        text.map((paragraph, index) => <Paragraph text={paragraph} key={index} mb={2} />)
                     }
                 </Grid>
             </Container>
