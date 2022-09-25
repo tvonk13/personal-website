@@ -47,7 +47,7 @@ export default function Resume() {
             setHeaderData({
                 name: resume.name[0].text,
                 profileImg: resume.profile.url,
-                location: 'Kirkland, WA',
+                location: 'New York',
                 linkedIn: resume.linkedin.url,
                 gitHub: resume.github.url,
                 email: resume.email.url,
