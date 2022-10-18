@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider, createTheme } from '@material-ui/core';
 import { BrowserRouter } from 'react-router-dom';
 import CssBaseLine from "@material-ui/core/CssBaseline";
+import { PrismicProvider } from '@prismicio/react'
+import { client } from './prismic'
 
 import Main from "./Main";
 
-const theme = createMuiTheme({ 
+const theme = createTheme({
   palette: {
     primary: { main: "#37374A" },
     secondary: { main: "#E5E5E5" },
@@ -18,11 +20,13 @@ const theme = createMuiTheme({
 });
 
 ReactDOM.render(
-  <ThemeProvider theme={theme}>
-    <CssBaseLine />
-    <BrowserRouter>
-      <Main/>
-    </BrowserRouter>
-  </ThemeProvider>,
+    <PrismicProvider client={client}>
+        <ThemeProvider theme={theme}>
+            <CssBaseLine />
+            <BrowserRouter>
+                <Main/>
+            </BrowserRouter>
+        </ThemeProvider>
+    </PrismicProvider>,
   document.getElementById("root"),
 );

@@ -2,6 +2,7 @@ import React from 'react';
 import { Grid, Box, Container, makeStyles } from '@material-ui/core';
 import Paragraph from './Paragraph';
 import SectionTitle from './SectionTitle';
+import { PrismicRichText } from "@prismicio/react";
 
 const useStyles = makeStyles(theme => ({
     overviewBox: {
@@ -20,9 +21,12 @@ export default function Summary({text}) {
             <Container maxWidth="md">
                 <Grid container direction="column">
                     <SectionTitle sectionTitle="Summary" mb={2} mt={1}/>
-                    {
-                        text.map((paragraph, index) => <Paragraph text={paragraph} key={index} mb={2} />)
-                    }
+                    <PrismicRichText
+                        field={text}
+                        components={{
+                            paragraph: ({children}) => <Paragraph text={children} mb={2} />
+                        }}
+                    />
                 </Grid>
             </Container>
         </Box>

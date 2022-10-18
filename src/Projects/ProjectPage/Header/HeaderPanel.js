@@ -3,6 +3,7 @@ import { makeStyles, Box } from '@material-ui/core';
 import Tag from './Tag';
 import LinkRoundedIcon from '@material-ui/icons/LinkRounded';
 import GitHub from '../../../assets/github-dark.svg';
+import { PrismicRichText } from "@prismicio/react";
 
 const useStyles = makeStyles(theme => ({
     headerPanel: {
@@ -37,13 +38,16 @@ const useStyles = makeStyles(theme => ({
 
 export default function HeaderPanel(props) {
     const classes = useStyles();
-    const { title, tags, subtitle, season, year, websiteText, websiteUrl, githubLinks } = props;
-    const spacing = 3;
+    const { title, tags, subtitle, date, websiteText, websiteUrl, githubLink, githubLinkText } = props;
 
     return (
         <Box display="flex" flexDirection="column" className={classes.headerPanel}>
-            <Box display="flex" fontFamily="Neucha" fontSize={48} color="primary.main">{title}</Box>
-
+            <PrismicRichText
+                field={title}
+                components={{
+                    heading1: ({children}) => <Box display="flex" fontFamily="Neucha" fontSize={48} color="primary.main">{children}</Box>
+                }}
+            />
             <Box display="flex" flexWrap="wrap">
                 {
                     tags &&
@@ -52,44 +56,57 @@ export default function HeaderPanel(props) {
                     })
                 }
             </Box>
-
             {
                 subtitle &&
-                <Box display="flex" fontSize={16} fontWeight="fontWeightLight" color="primary.main" mt={spacing} maxWidth="75%" className={classes.subtitle}>
-                    {subtitle}
+                <Box display="flex" fontSize={16} fontWeight="fontWeightLight" color="primary.main" maxWidth="75%" className={classes.subtitle}>
+                    <PrismicRichText field={subtitle} />
+                </Box>
+            }
+            {
+                date &&
+                <Box display="flex" fontSize={16} fontWeight="fontWeightLight" color="primary.main" maxWidth="75%">
+                    <PrismicRichText field={date} components={{ paragraph: ({children}) => <span>{children}</span>}} />
                 </Box>
             }
 
-            <Box display="flex" mt={spacing}>
-                <Box display="inline" fontWeight="fontWeightSemiBold" fontSize={16} color="primary.main" mr={1}>{season}</Box>
-                <Box display="inline" fontWeight="fontWeightLight" fontSize={16} color="primary.main">{year}</Box>
-            </Box>
-
             {
-                ((websiteText && websiteUrl)|| githubLinks) &&
-                <Box display="flex" flexDirection="column" justifyContent="space-evenly" mt={spacing}>
+                ((websiteText && websiteUrl)|| githubLink) &&
+                <Box display="flex" flexDirection="column" justifyContent="space-evenly" mt={2}>
                     {
                         websiteUrl && websiteText &&
                         <Box display="flex" className={classes.linkContainer}>
                             <LinkRoundedIcon className={classes.icon}/>
-                            <Box display="flex"><a href={websiteUrl}
-                                                                  target="_blank"
-                                                                  rel="noopener noreferrer"
-                                                                  className={classes.link}>{websiteText}</a></Box>
+                            <Box display="flex">
+                                <PrismicRichText
+                                    field={websiteText}
+                                    components={{
+                                        paragraph: ({children}) => (
+                                            <a href={websiteUrl.url} target="_blank" rel="noopener noreferrer" className={classes.link}>
+                                                {children}
+                                            </a>
+                                        )
+                                    }}
+                                />
+                            </Box>
                         </Box>
                     }
                     {
-                        githubLinks &&
-                        githubLinks.map((link, index) => {
-                            return (
-                                <Box display="flex" alignItems="center" key={index} className={classes.linkContainer}>
-                                    <img src={GitHub} className={classes.icon} alt="GitHub"/>
-                                    <Box display="flex"><a href={`https://www.github.com/${link}`} target="_blank"
-                                                                          rel="noopener noreferrer"
-                                                                          className={classes.link}>{link}</a></Box>
-                                </Box>
-                            )
-                        })
+                        githubLink && githubLinkText &&
+                        <Box display="flex" alignItems="center" className={classes.linkContainer}>
+                            <img src={GitHub} className={classes.icon} alt="GitHub"/>
+                            <Box display="flex">
+                                <PrismicRichText
+                                    field={githubLinkText}
+                                    components={{
+                                        paragraph: ({children}) => (
+                                            <a href={githubLink.url} target="_blank" rel="noopener noreferrer" className={classes.link}>
+                                                {children}
+                                            </a>
+                                        )
+                                    }}
+                                />
+                            </Box>
+                        </Box>
                     }
                 </Box>
             }

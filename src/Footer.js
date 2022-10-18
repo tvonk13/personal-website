@@ -28,7 +28,7 @@ function Footer() {
     return(
         <div className={styles.footer}>
             <Container className={styles.footerContent}>
-                <Grid container justify="center" spacing={2}>
+                <Grid container justifyContent="center" spacing={2}>
                     <Grid item>
                         <LinkedIn color="light" />
                     </Grid>

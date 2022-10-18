@@ -5,9 +5,9 @@ import LinkedIn from '../SocialIcons/LinkedIn';
 import GitHub from '../SocialIcons/GitHub';
 import Email from '../SocialIcons/Email';
 import Download from '../SocialIcons/Download';
-import { RichText } from 'prismic-reactjs';
+import { PrismicRichText } from "@prismicio/react";
 
-const useStyles = makeStyles(themeObject => ({
+const useStyles = makeStyles(() => ({
     name: {
       textAlign: 'center',
       fontFamily: 'Neucha'
@@ -31,7 +31,7 @@ function ResumeHeader({data}) {
     const classes = useStyles();
 
     return(
-      <Grid container direction="column" justify="flex-start" alignItems="center" spacing={1}>
+      <Grid container direction="column" justifyContent="flex-start" alignItems="center" spacing={1}>
 
         {/* NAME */}
         <Grid item>
@@ -44,14 +44,16 @@ function ResumeHeader({data}) {
         </Grid>
 
         {/* LOCATION */}
-        <Grid item container justify="center">
+        <Grid item container justifyContent="center">
           <LocationOnRoundedIcon fontSize="small" color="primary"/>
-          <Box fontSize={16} color="primary.main" fontWeight="fontWeightLight" ml={1}>{data.location}</Box>
+          <Box fontSize={16} color="primary.main" fontWeight="fontWeightLight" ml={1}>
+              <PrismicRichText field={data.location} components={{ paragraph: ({ children }) => <span>{children}</span>}}/>
+          </Box>
         </Grid>
 
         {/* SOCIAL */}
         <Grid item container>
-            <Grid container justify="center" spacing={1}>
+            <Grid container justifyContent="center" spacing={1}>
                 <Grid item>
                     <LinkedIn color="dark" url={data.linkedIn}/>
                 </Grid>
@@ -70,7 +72,7 @@ function ResumeHeader({data}) {
         {/* BLURB */}
         <Grid item>
             <Box fontSize={16} color="primary.main" fontWeight="fontWeightLight" lineHeight={2} mt={1}>
-                {RichText.render(data.description)}
+                <PrismicRichText field={data.description} />
             </Box>
         </Grid>
 

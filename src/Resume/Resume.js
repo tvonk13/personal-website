@@ -4,8 +4,7 @@ import Section from './Section'
 import JobContent from "./JobContent";
 import KnowledgeItem from "./KnowledgeItem";
 import ResumeHeader from "./ResumeHeader";
-import Prismic from '@prismicio/client';
-import Client from '../prismic-configuration';
+import { useSinglePrismicDocument } from "@prismicio/react";
 
 const useStyles = makeStyles(theme => ({
     resumeContainer: {
@@ -34,25 +33,20 @@ const useStyles = makeStyles(theme => ({
 export default function Resume() {
     const classes = useStyles();
     const [loaded, setLoaded] = useState(true);
-    const [resume, setResume] = useState(null);
     const [headerData, setHeaderData] = useState(null);
-
-    useEffect(() => {
-        Client.query(Prismic.Predicates.at('document.type', 'resume'))
-            .then(response => setResume(response.results[0].data));
-    }, []);
+    const [resume] = useSinglePrismicDocument('resume');
 
     useEffect(() => {
         if (resume) {
             setHeaderData({
-                name: resume.name[0].text,
-                profileImg: resume.profile.url,
-                location: 'New York',
-                linkedIn: resume.linkedin.url,
-                gitHub: resume.github.url,
-                email: resume.email.url,
-                resumePDF: resume.resume,
-                description: resume.description,
+                name: resume?.data.name[0].text,
+                profileImg: resume?.data.profile.url,
+                location: resume?.data.location,
+                linkedIn: resume?.data.linkedin.url,
+                gitHub: resume?.data.github.url,
+                email: resume?.data.email.url,
+                resumePDF: resume?.data.resume,
+                description: resume?.data.description,
             })
             setLoaded(true);
         }
@@ -75,7 +69,7 @@ export default function Resume() {
                             <Grid item className={classes.resumeItem}>
                                 <Section name="Education">
                                     {
-                                        resume.body.filter(bodyItem => bodyItem['slice_label'] === 'education')
+                                        resume?.data.body.filter(bodyItem => bodyItem['slice_label'] === 'education')
                                             .map((educationItem, index) =>
                                                 <JobContent
                                                     key={index}
@@ -92,7 +86,7 @@ export default function Resume() {
                             <Grid item className={classes.resumeItem}>
                                 <Section name="Experience">
                                     {
-                                        resume.body.filter(bodyItem => bodyItem['slice_label'] === 'experience')
+                                        resume?.data.body.filter(bodyItem => bodyItem['slice_label'] === 'experience')
                                             .map((experienceItem, index) =>
                                                 <JobContent
                                                     key={index}
@@ -111,7 +105,7 @@ export default function Resume() {
                                     <Section name="Languages/Frameworks*" style={{paddingRight: '10px'}}>
                                         <Grid container className={classes.skillRow}>
                                             {
-                                                resume.body.filter(bodyItem => bodyItem['slice_label'] === 'languages')
+                                                resume?.data.body.filter(bodyItem => bodyItem['slice_label'] === 'languages')
                                                     [0].items
                                                     .map((skillItem, index) => <KnowledgeItem key={index} name={skillItem.item[0].text} level={skillItem.rating}/>)
                                             }
@@ -124,7 +118,7 @@ export default function Resume() {
                                     <Section name="Software/Tools*">
                                         <Grid container className={classes.skillRow}>
                                             {
-                                                resume.body.filter(bodyItem => bodyItem['slice_label'] === 'software')
+                                                resume?.data.body.filter(bodyItem => bodyItem['slice_label'] === 'software')
                                                     [0].items
                                                     .map((skillItem, index) => <KnowledgeItem key={index} name={skillItem.item[0].text} level={skillItem.rating}/>)
                                             }
@@ -141,7 +135,7 @@ export default function Resume() {
                                 <Section name="Interests">
                                     <List>
                                         {
-                                            resume.interests.map((interest, index) =>
+                                            resume?.data.interests.map((interest, index) =>
                                                 <ListItem key={index}>
                                                     <Box key={index} fontSize={16} color="primary.main" fontWeight="fontWeightLight">{interest.text}</Box>
                                                 </ListItem>)

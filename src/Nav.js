@@ -2,6 +2,8 @@ import React, { Fragment }  from 'react';
 import { makeStyles, AppBar, Typography, Grid, Toolbar, Popper, Grow, Paper, ClickAwayListener, MenuList, MenuItem, Box } from "@material-ui/core";
 import { Link, useLocation } from "react-router-dom";
 import clsx from "clsx";
+import { useAllPrismicDocumentsByType } from "@prismicio/react";
+import { orderBy } from "lodash";
 
 const useStyles = makeStyles(theme => ({
     titleGridItem: {
@@ -61,6 +63,7 @@ const useStyles = makeStyles(theme => ({
 function Nav() {
     const classes = useStyles();
     let { pathname } = useLocation();
+    const [projects] = useAllPrismicDocumentsByType('project');
 
     const [open, setOpen] = React.useState(false);
     const anchorRef = React.useRef(null);
@@ -96,7 +99,7 @@ function Nav() {
                         <Grid item container xs={12} sm={3} className={classes.titleGridItem} >
                             <Typography className={classes.title} variant="h5" color="primary" component={Link} to="/" >TAYLOR STIGER</Typography>
                         </Grid>
-                        <Grid item container xs={12} sm={9} justify="flex-end" className={classes.tabsGridItem}>
+                        <Grid item container xs={12} sm={9} justifyContent="flex-end" className={classes.tabsGridItem}>
                             <Box
                                 display="flex"
                                 ref={anchorRef}
@@ -128,10 +131,9 @@ function Nav() {
                                         })}>
                                             <ClickAwayListener onClickAway={close}>
                                                 <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                                                    <MenuItem to="/projects/personal-website" component={Link} onClick={handleClose}>Personal Website</MenuItem>
-                                                    <MenuItem to="/projects/art-website" component={Link} onClick={handleClose}>Art Website</MenuItem>
-                                                    <MenuItem to="/projects/puzzle-stats" component={Link} onClick={handleClose}>Puzzle Stats</MenuItem>
-                                                    <MenuItem to="/projects/zumolyzer" component={Link} onClick={handleClose}>Zumolyzer</MenuItem>
+                                                    {projects && orderBy(projects, ['first_publication_date'], ['desc']).map((project, index) =>
+                                                        <MenuItem key={index} to={`/projects/${project.uid}`} component={Link} onClick={handleClose}>{project.data.title[0].text}</MenuItem>
+                                                    )}
                                                 </MenuList>
                                             </ClickAwayListener>
                                         </Paper>

@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { makeStyles, Container, Grid, Fade, Box } from "@material-ui/core";
-import Client from './prismic-configuration';
-import Prismic from '@prismicio/client';
-import RichText from 'prismic-reactjs/src/Component';
+import { useSinglePrismicDocument, PrismicRichText } from "@prismicio/react";
 
 const useStyles = makeStyles(theme => ({
     aboutContainer: {
@@ -35,16 +33,11 @@ export default function About() {
 
     const [loaded, setLoaded] = useState(false);
     const [imgLoaded, setImgLoaded] = useState(false);
-    const [about, setAbout] = useState(null);
+    const [about] = useSinglePrismicDocument('about');
 
     useEffect(() => {
-        Client.query(Prismic.Predicates.at('document.type', 'about'))
-            .then(response => {
-                setAbout(response.results[0].data)
-                console.log(response.results[0].data)
-                setLoaded(true);
-            });
-    }, []);
+        if (!!about) setLoaded(true);
+    }, [about]);
 
     return (
         <>
@@ -52,15 +45,15 @@ export default function About() {
                 about ?
                 <Fade in={loaded} timeout={500}>
                     <Container maxWidth="md" className={classes.aboutContainer}>
-                        <Grid container justify="center" alignItems="center" direction="column" className={classes.about}>
+                        <Grid container justifyContent="center" alignItems="center" direction="column" className={classes.about}>
                             <Grid item className={classes.profileContainer}>
                                 <Fade in={imgLoaded} timeout={1000}>
-                                    <img src={about.profile.url} onLoad={() => setImgLoaded(true)} className={classes.profileImg} alt="Profile"/>
+                                    <img src={about?.data.profile.url} onLoad={() => setImgLoaded(true)} className={classes.profileImg} alt="Profile"/>
                                 </Fade>
                             </Grid>
                             <Grid item >
                                 <Box fontSize={16} color="primary.main" fontWeight="fontWeightLight" mb={3}>
-                                    {RichText.render(about.description)}
+                                    <PrismicRichText field={about?.data.description} />
                                 </Box>
                             </Grid>
                         </Grid>

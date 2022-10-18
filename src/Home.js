@@ -29,7 +29,7 @@ function Home() {
     return (
         <Fade in={loaded} timeout={1000}>
             <Container maxWidth="sm" className={classes.homeContainer} >
-                <Grid container direction="column" alignItems="center" justify="center" spacing={2} className={classes.homeText}>
+                <Grid container direction="column" alignItems="center" justifyContent="center" spacing={2} className={classes.homeText}>
                     <Grid item>
                         <Box fontSize={48} color="primary.main" fontFamily="Neucha">
                             Hi, I'm Taylor!

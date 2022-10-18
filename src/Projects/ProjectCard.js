@@ -1,5 +1,5 @@
 import React from 'react';
-import {Grid, makeStyles, Box, Fade} from '@material-ui/core';
+import {makeStyles, Box, Fade} from '@material-ui/core';
 import Tag from './ProjectPage/Header/Tag';
 import { Link } from "react-router-dom";
 
@@ -22,16 +22,16 @@ export default function ProjectCard({title, tags, img, link}) {
     const classes = useStyles();
     return (
         <Fade in={true} timeout={1000}>
-            <Grid container direction="column" alignItems="center" style={{marginTop: "16px"}}>
+            <Box display="flex" flexDirection="column" alignItems="center" mt={4} minWidth={{ xs: '85vw', md: '400px'}}>
                 <Box display="flex" fontFamily="Neucha" fontSize={30} color="primary.main">{title}</Box>
-                <Grid item container justify="center">
+                <Box display="flex" justifyContent="center">
                     {
                         tags &&
                         tags.map((tag, index) => {
                             return <Tag tag={tag} key={index} marginRight={.5} marginLeft={.5}/>
                         })
                     }
-                </Grid>
+                </Box>
                 <Box display="inline"
                      width="400px"
                      height="215px"
@@ -47,8 +47,8 @@ export default function ProjectCard({title, tags, img, link}) {
                      className={classes.tile}
                      component={Link}
                      to={"projects/" + link}
-                     />
-            </Grid>
+                />
+            </Box>
         </Fade>
     )
 }
